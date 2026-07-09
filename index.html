@@ -22,11 +22,21 @@
   --lt-gray2:#E5E5E9;
   --nav:220px;
   --header:56px;
+  /* Light mode tokens */
+  --lm-bg:#F8F9FC;
+  --lm-surface:#FFFFFF;
+  --lm-surface2:#F1F3F8;
+  --lm-border:#E2E6EF;
+  --lm-border2:#D0D5E2;
+  --lm-text:#111827;
+  --lm-text2:#374151;
+  --lm-text3:#6B7280;
+  --lm-text4:#9CA3AF;
 }
 html{font-size:14px}
-body{font-family:'DM Sans',-apple-system,sans-serif;background:#08122e;color:var(--mk-white);min-height:100vh;display:flex;overflow-x:hidden}
+body{font-family:'DM Sans',-apple-system,sans-serif;background:var(--lm-bg);color:var(--lm-text);min-height:100vh;display:flex;overflow-x:hidden}
 
-/* ── SIDEBAR ── */
+/* ── SIDEBAR — stays dark ── */
 .sidebar{width:var(--nav);min-height:100vh;background:var(--mk-blue);border-right:1px solid rgba(255,255,255,.08);position:fixed;left:0;top:0;bottom:0;z-index:200;display:flex;flex-direction:column;flex-shrink:0}
 .sidebar-logo{height:var(--header);display:flex;align-items:center;padding:0 20px;border-bottom:1px solid rgba(255,255,255,.08);flex-shrink:0}
 .sidebar-logo svg{width:100px;height:auto}
@@ -40,121 +50,113 @@ body{font-family:'DM Sans',-apple-system,sans-serif;background:#08122e;color:var
 .sidebar-bottom{padding:14px 16px;border-top:1px solid rgba(255,255,255,.08)}
 .dentsu-tag{font-size:9px;color:rgba(255,255,255,.3);letter-spacing:.06em;text-transform:uppercase}
 
-/* ── PERSONA BAR ── */
-.persona-bar{position:fixed;top:0;left:var(--nav);right:0;height:var(--header);background:var(--mk-blue);border-bottom:1px solid rgba(255,255,255,.08);z-index:150;display:flex;align-items:center;justify-content:space-between;padding:0 28px}
-.persona-bar-left{display:flex;align-items:center;gap:16px}
-.page-title{font-size:14px;font-weight:600;color:#fff;letter-spacing:.01em}
-.persona-bar-right{display:flex;align-items:center;gap:12px}
-.top-stat{text-align:right}
-.top-stat-val{font-size:16px;font-weight:700;color:#fff}
-.top-stat-lbl{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.4)}
-.top-divider{width:1px;height:28px;background:rgba(255,255,255,.1)}
+/* ── TOP BAR — removed ── */
 
-/* ── MAIN ── */
-.main{margin-left:var(--nav);padding-top:var(--header);flex:1;min-height:100vh}
+/* ── MAIN — light ── */
+.main{margin-left:var(--nav);flex:1;min-height:100vh;background:var(--lm-bg)}
 .page{display:none;padding:28px;max-width:1400px}
 .page.active{display:block}
 .ph{margin-bottom:28px}
-.ph h1{font-size:26px;font-weight:700;color:#fff;margin-bottom:6px;letter-spacing:-.01em}
-.ph p{font-size:13px;color:rgba(255,255,255,.5);line-height:1.6}
+.ph h1{font-size:26px;font-weight:700;color:var(--mk-blue);margin-bottom:6px;letter-spacing:-.01em}
+.ph p{font-size:13px;color:var(--lm-text3);line-height:1.6}
 .ph-tag{display:inline-flex;align-items:center;gap:6px;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--mk-red);margin-bottom:8px}
 .ph-tag::before{content:'';display:block;width:16px;height:2px;background:var(--mk-red)}
 
-/* ── CARDS ── */
-.card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:20px}
-.card-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.5);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+/* ── CARDS — light ── */
+.card{background:var(--lm-surface);border:1px solid var(--lm-border);border-radius:10px;padding:20px;box-shadow:0 1px 4px rgba(4,14,75,.05)}
+.card-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--lm-text4);margin-bottom:14px;display:flex;align-items:center;gap:8px}
 .card-title svg{width:14px;height:14px;stroke:var(--mk-sky);fill:none;flex-shrink:0}
-.card-xl{background:rgba(4,22,119,.35);border:1px solid rgba(3,145,242,.2);border-radius:10px;padding:24px}
-.card-red{background:rgba(232,71,42,.08);border:1px solid rgba(232,71,42,.25);border-radius:10px;padding:20px}
+.card-xl{background:linear-gradient(135deg,#EFF4FF,#F0F7FF);border:1px solid #C7D8F8;border-radius:10px;padding:24px}
+.card-red{background:#FFF5F3;border:1px solid #FCC9C0;border-radius:10px;padding:20px}
 
-/* ── STAT TILES ── */
+/* ── STAT TILES — light ── */
 .stat-row{display:grid;gap:14px;margin-bottom:24px}
 .stat-row.cols4{grid-template-columns:repeat(4,1fr)}
 .stat-row.cols3{grid-template-columns:repeat(3,1fr)}
 .stat-row.cols5{grid-template-columns:repeat(5,1fr)}
-.stat{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:18px 20px;position:relative;overflow:hidden}
-.stat::after{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.stat{background:var(--lm-surface);border:1px solid var(--lm-border);border-radius:10px;padding:18px 20px;position:relative;overflow:hidden;box-shadow:0 1px 4px rgba(4,14,75,.04)}
+.stat::after{content:'';position:absolute;top:0;left:0;right:0;height:3px}
 .stat.blue::after{background:var(--mk-sky)}
 .stat.red::after{background:var(--mk-red)}
 .stat.green::after{background:#22c55e}
 .stat.gold::after{background:#f59e0b}
-.stat-lbl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.4);margin-bottom:6px}
-.stat-val{font-size:30px;font-weight:700;color:#fff;line-height:1}
+.stat-lbl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--lm-text4);margin-bottom:6px}
+.stat-val{font-size:30px;font-weight:700;color:var(--mk-blue);line-height:1}
 .stat-val.sm{font-size:22px}
-.stat-sub{font-size:11px;color:rgba(255,255,255,.4);margin-top:5px}
+.stat-sub{font-size:11px;color:var(--lm-text4);margin-top:5px}
 
 /* ── GRID LAYOUTS ── */
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
 .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 
-/* ── TABLE ── */
+/* ── TABLE — light ── */
 .tbl{width:100%;border-collapse:collapse}
-.tbl th{background:rgba(255,255,255,.05);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.4);padding:9px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,.08)}
-.tbl td{padding:10px 12px;font-size:12px;border-bottom:1px solid rgba(255,255,255,.05);vertical-align:middle;color:rgba(255,255,255,.8)}
+.tbl th{background:var(--lm-surface2);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--lm-text3);padding:9px 12px;text-align:left;border-bottom:1px solid var(--lm-border)}
+.tbl td{padding:10px 12px;font-size:12px;border-bottom:1px solid var(--lm-border2);vertical-align:middle;color:var(--lm-text2)}
 .tbl tr:last-child td{border-bottom:none}
-.tbl tr:hover td{background:rgba(255,255,255,.03);cursor:pointer}
-.tbl-wrap{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:10px;overflow:hidden}
+.tbl tr:hover td{background:var(--lm-surface2);cursor:pointer}
+.tbl-wrap{background:var(--lm-surface);border:1px solid var(--lm-border);border-radius:10px;overflow:visible;box-shadow:0 1px 4px rgba(4,14,75,.04)}
 
-/* ── BADGES ── */
+/* ── BADGES — adapted for light ── */
 .badge{font-size:9px;font-weight:700;padding:3px 8px;border-radius:4px;text-transform:uppercase;letter-spacing:.04em;display:inline-block}
-.badge.active{background:rgba(34,197,94,.15);color:#4ade80}
-.badge.review{background:rgba(245,158,11,.15);color:#fbbf24}
-.badge.risk{background:rgba(232,71,42,.15);color:#f87171}
-.badge.implementing{background:rgba(3,145,242,.15);color:var(--mk-sky)}
-.badge.deprecated{background:rgba(100,100,120,.2);color:#94a3b8}
-.badge.cat{background:rgba(3,40,209,.2);color:#93c5fd}
+.badge.active{background:#dcfce7;color:#166534}
+.badge.review{background:#fef9c3;color:#854d0e}
+.badge.risk{background:#fee2e2;color:#991b1b}
+.badge.implementing{background:#dbeafe;color:#1e40af}
+.badge.deprecated{background:#f3f4f6;color:#6b7280}
+.badge.cat{background:#ede9fe;color:#5b21b6}
 
-/* ── PROGRESS ── */
-.pbar{height:4px;background:rgba(255,255,255,.08);border-radius:2px}
+/* ── PROGRESS — light ── */
+.pbar{height:4px;background:var(--lm-border);border-radius:2px}
 .pbar-fill{height:100%;border-radius:2px;transition:width .4s ease}
 .pbar-fill.blue{background:var(--mk-sky)}
 .pbar-fill.green{background:#22c55e}
 .pbar-fill.gold{background:#f59e0b}
 .pbar-fill.red{background:var(--mk-red)}
 
-/* ── SECTION WRAPPER ── */
+/* ── SECTION WRAPPER — light ── */
 .section-block{margin-bottom:24px}
 .section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
-.section-head h2{font-size:16px;font-weight:700;color:#fff}
-.section-sub{font-size:11px;color:rgba(255,255,255,.4)}
+.section-head h2{font-size:16px;font-weight:700;color:var(--mk-blue)}
+.section-sub{font-size:11px;color:var(--lm-text4)}
 
-/* ── FILTER BAR ── */
+/* ── FILTER BAR — light ── */
 .filter-bar{display:flex;align-items:center;gap:8px;margin-bottom:16px;flex-wrap:wrap}
-.filter-chip{padding:5px 12px;border-radius:4px;border:1px solid rgba(255,255,255,.12);background:transparent;color:rgba(255,255,255,.5);font-size:11px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .12s}
+.filter-chip{padding:5px 12px;border-radius:4px;border:1px solid var(--lm-border2);background:var(--lm-surface);color:var(--lm-text3);font-size:11px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .12s}
 .filter-chip:hover{border-color:var(--mk-sky);color:var(--mk-sky)}
-.filter-chip.active{background:rgba(3,145,242,.15);border-color:var(--mk-sky);color:#fff}
-.search-box{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:7px 12px;flex:1;max-width:320px}
-.search-box svg{width:13px;height:13px;stroke:rgba(255,255,255,.35);fill:none;flex-shrink:0}
-.search-box input{background:none;border:none;outline:none;color:#fff;font-size:12px;font-family:'DM Sans',sans-serif;flex:1}
-.search-box input::placeholder{color:rgba(255,255,255,.25)}
+.filter-chip.active{background:#dbeafe;border-color:var(--mk-sky);color:var(--mk-blue)}
+.search-box{display:flex;align-items:center;gap:8px;background:var(--lm-surface);border:1px solid var(--lm-border2);border-radius:6px;padding:7px 12px;flex:1;max-width:320px}
+.search-box svg{width:13px;height:13px;stroke:var(--lm-text4);fill:none;flex-shrink:0}
+.search-box input{background:none;border:none;outline:none;color:var(--lm-text);font-size:12px;font-family:'DM Sans',sans-serif;flex:1}
+.search-box input::placeholder{color:var(--lm-text4)}
 
-/* ── HEAT CHIP ── */
+/* ── HEAT CHIP — light ── */
 .heat{font-size:10px;font-weight:700;font-family:'DM Mono',monospace;padding:2px 7px;border-radius:3px}
-.heat.h{background:rgba(34,197,94,.12);color:#4ade80}
-.heat.m{background:rgba(245,158,11,.12);color:#fbbf24}
-.heat.l{background:rgba(232,71,42,.12);color:#f87171}
+.heat.h{background:#dcfce7;color:#166534}
+.heat.m{background:#fef9c3;color:#854d0e}
+.heat.l{background:#fee2e2;color:#991b1b}
 
-/* ── SCORE RING ── */
+/* ── SCORE RING — light ── */
 .score-ring{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:72px;height:72px;border-radius:50%;border:3px solid;flex-shrink:0}
-.score-ring.green{border-color:#22c55e;color:#4ade80}
-.score-ring.gold{border-color:#f59e0b;color:#fbbf24}
-.score-ring.red{border-color:var(--mk-red);color:#f87171}
+.score-ring.green{border-color:#22c55e;color:#166534}
+.score-ring.gold{border-color:#f59e0b;color:#92400e}
+.score-ring.red{border-color:var(--mk-red);color:#991b1b}
 .score-ring .sval{font-size:20px;font-weight:700}
 .score-ring .slbl{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;opacity:.7}
 
 /* ── MODAL (white mode) ── */
-.modal-overlay{position:fixed;inset:0;background:rgba(4,14,75,.65);backdrop-filter:blur(4px);z-index:500;display:none;align-items:flex-start;justify-content:center;padding:28px 20px;overflow-y:auto}
+.modal-overlay{position:fixed;inset:0;background:rgba(4,14,75,.5);backdrop-filter:blur(4px);z-index:500;display:none;align-items:flex-start;justify-content:center;padding:28px 20px;overflow-y:auto}
 .modal-overlay.open{display:flex}
-.modal{background:#fff;border-radius:14px;max-width:900px;width:100%;position:relative;box-shadow:0 24px 64px rgba(4,14,75,.25);margin:auto}
-.modal-header{background:var(--mk-blue);border-radius:14px 14px 0 0;padding:24px 28px 20px;position:relative}
-.modal-close{position:absolute;top:14px;right:16px;background:rgba(255,255,255,.12);border:none;color:rgba(255,255,255,.7);cursor:pointer;font-size:16px;line-height:1;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .15s}
-.modal-close:hover{background:rgba(255,255,255,.25);color:#fff}
-.modal-title{font-size:20px;font-weight:700;color:#fff;margin-bottom:2px}
-.modal-sub{font-size:12px;color:rgba(255,255,255,.5)}
+.modal{background:#fff;border-radius:14px;max-width:900px;width:100%;position:relative;box-shadow:0 24px 64px rgba(4,14,75,.18);margin:auto}
+.modal-header{background:#fff;border-radius:14px 14px 0 0;padding:24px 28px 20px;position:relative;border-bottom:1px solid var(--lm-border)}
+.modal-close{position:absolute;top:16px;right:16px;background:var(--lm-surface2);border:1px solid var(--lm-border);color:var(--lm-text3);cursor:pointer;font-size:14px;line-height:1;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.modal-close:hover{background:var(--lm-border);color:var(--mk-blue)}
+.modal-title{font-size:20px;font-weight:700;color:var(--mk-blue);margin-bottom:2px}
+.modal-sub{font-size:12px;color:var(--lm-text3)}
 .modal-meta-row{display:flex;align-items:center;gap:8px;margin-top:10px;flex-wrap:wrap}
 .modal-body{padding:0}
-.modal-tabs{display:flex;gap:0;border-bottom:2px solid #f1f3f5;overflow-x:auto}
+.modal-tabs{display:flex;gap:0;border-bottom:2px solid #f1f3f5;overflow-x:auto;background:#fff}
 .modal-tab{padding:12px 18px;border:none;background:none;color:#6c757d;font-size:12px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .12s;white-space:nowrap}
 .modal-tab:hover{color:var(--mk-blue)}
 .modal-tab.active{color:var(--mk-blue);border-bottom-color:var(--mk-red)}
@@ -232,77 +234,79 @@ body{font-family:'DM Sans',-apple-system,sans-serif;background:#08122e;color:var
 .score-ring-light .sval{font-size:18px;font-weight:700}
 .score-ring-light .slbl{font-size:7px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;opacity:.7}
 
-/* ── DIAGRAM PAGE ── */
-.diagram-card{background:rgba(4,22,119,.25);border:1px solid rgba(3,145,242,.15);border-radius:10px;padding:18px;cursor:pointer;transition:all .15s}
-.diagram-card:hover{border-color:rgba(3,145,242,.5);background:rgba(4,22,119,.4)}
-.diagram-card-title{font-size:13px;font-weight:700;color:#fff;margin-bottom:5px}
+/* ── DIAGRAM PAGE — light ── */
+.diagram-card{background:var(--lm-surface);border:1px solid var(--lm-border);border-radius:10px;padding:18px;cursor:pointer;transition:all .15s;box-shadow:0 1px 4px rgba(4,14,75,.04)}
+.diagram-card:hover{border-color:var(--mk-sky);box-shadow:0 4px 16px rgba(3,145,242,.12)}
+.diagram-card-title{font-size:13px;font-weight:700;color:var(--mk-blue);margin-bottom:5px}
 .diagram-card-type{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--mk-sky);margin-bottom:8px}
-.diagram-card-desc{font-size:11px;color:rgba(255,255,255,.5);line-height:1.5}
-.diagram-preview{background:rgba(4,23,164,.1);border:1px dashed rgba(3,145,242,.3);border-radius:6px;height:100px;display:flex;align-items:center;justify-content:center;margin-top:10px;color:rgba(255,255,255,.2);font-size:11px}
+.diagram-card-desc{font-size:11px;color:var(--lm-text3);line-height:1.5}
+.diagram-preview{background:linear-gradient(135deg,#EFF4FF,#F0F7FF);border:1px dashed #C7D8F8;border-radius:6px;height:100px;display:flex;align-items:center;justify-content:center;margin-top:10px;color:#93c5fd;font-size:11px}
 
-/* ── AI PAGE ── */
-.ai-rec{background:linear-gradient(135deg,rgba(4,22,119,.5),rgba(3,40,209,.2));border:1px solid rgba(3,145,242,.2);border-radius:10px;padding:18px;margin-bottom:12px}
+/* ── AI PAGE — light ── */
+.ai-rec{background:var(--lm-surface);border:1px solid var(--lm-border);border-radius:10px;padding:18px;margin-bottom:12px;box-shadow:0 1px 4px rgba(4,14,75,.04)}
 .ai-rec-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px;gap:12px}
-.ai-rec-title{font-size:14px;font-weight:700;color:#fff;margin-bottom:3px}
+.ai-rec-title{font-size:14px;font-weight:700;color:var(--mk-blue);margin-bottom:3px}
 .ai-rec-cat{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--mk-sky)}
-.ai-rec-body{font-size:12px;color:rgba(255,255,255,.65);line-height:1.6}
-.ai-impact{font-size:11px;font-weight:700;color:#4ade80;margin-top:8px}
-.ai-predict-card{background:rgba(232,71,42,.06);border:1px solid rgba(232,71,42,.2);border-radius:10px;padding:18px;margin-bottom:12px}
+.ai-rec-body{font-size:12px;color:var(--lm-text3);line-height:1.6}
+.ai-impact{font-size:11px;font-weight:700;color:#166534;margin-top:8px}
+.ai-predict-card{background:#fff5f3;border:1px solid #fcc9c0;border-radius:10px;padding:18px;margin-bottom:12px}
 
-/* ── REDUNDANCY ── */
-.red-group{background:rgba(232,71,42,.05);border:1px solid rgba(232,71,42,.18);border-radius:10px;padding:18px;margin-bottom:14px}
-.red-group-title{font-size:13px;font-weight:700;color:#fff;margin-bottom:4px}
-.red-group-sub{font-size:11px;color:rgba(255,255,255,.45);margin-bottom:12px}
+/* ── REDUNDANCY — light ── */
+.red-group{background:#fff5f3;border:1px solid #fcc9c0;border-radius:10px;padding:18px;margin-bottom:14px}
+.red-group-title{font-size:13px;font-weight:700;color:var(--mk-blue);margin-bottom:4px}
+.red-group-sub{font-size:11px;color:var(--lm-text3);margin-bottom:12px}
 .red-tools{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
-.red-tool{padding:5px 12px;border-radius:4px;font-size:11px;font-weight:600;border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.7)}
-.red-tool.keep{border-color:rgba(34,197,94,.3);color:#4ade80;background:rgba(34,197,94,.08)}
-.red-tool.remove{border-color:rgba(232,71,42,.3);color:#f87171;background:rgba(232,71,42,.08);text-decoration:line-through;opacity:.7}
-.red-tool.evaluate{border-color:rgba(245,158,11,.3);color:#fbbf24;background:rgba(245,158,11,.08)}
-.red-savings{font-size:12px;color:rgba(255,255,255,.5)}
-.red-savings strong{color:#4ade80}
+.red-tool{padding:5px 12px;border-radius:4px;font-size:11px;font-weight:600;border:1px solid var(--lm-border2);color:var(--lm-text2);background:var(--lm-surface)}
+.red-tool.keep{border-color:#86efac;color:#166534;background:#f0fdf4}
+.red-tool.remove{border-color:#fca5a5;color:#991b1b;background:#fee2e2;text-decoration:line-through;opacity:.8}
+.red-tool.evaluate{border-color:#fde68a;color:#854d0e;background:#fef9c3}
+.red-savings{font-size:12px;color:var(--lm-text3)}
+.red-savings strong{color:#166534}
 
-/* ── INTEGRATION MAP ── */
-.int-row{display:flex;align-items:center;padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.05)}
+/* ── INTEGRATION MAP — light ── */
+.int-row{display:flex;align-items:center;padding:10px 12px;border-bottom:1px solid var(--lm-border2)}
 .int-row:last-child{border-bottom:none}
-.int-row:hover{background:rgba(255,255,255,.03)}
-.int-from,.int-to{font-size:12px;font-weight:600;color:#fff;min-width:160px}
+.int-row:hover{background:var(--lm-surface2)}
+.int-from,.int-to{font-size:12px;font-weight:600;color:var(--mk-blue);min-width:160px}
 .int-arrow{color:var(--mk-sky);font-size:16px;margin:0 12px;flex-shrink:0}
-.int-type{font-size:10px;font-weight:600;padding:2px 8px;border-radius:3px;background:rgba(3,145,242,.12);color:#93c5fd;margin-right:10px}
+.int-type{font-size:10px;font-weight:600;padding:2px 8px;border-radius:3px;background:#dbeafe;color:#1e40af;margin-right:10px}
 .int-health{font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px}
-.int-health.ok{background:rgba(34,197,94,.12);color:#4ade80}
-.int-health.warn{background:rgba(245,158,11,.12);color:#fbbf24}
-.int-health.down{background:rgba(232,71,42,.12);color:#f87171}
-.int-latency{font-size:11px;font-family:'DM Mono',monospace;color:rgba(255,255,255,.4);margin-left:auto}
+.int-health.ok{background:#dcfce7;color:#166534}
+.int-health.warn{background:#fef9c3;color:#854d0e}
+.int-health.down{background:#fee2e2;color:#991b1b}
+.int-latency{font-size:11px;font-family:'DM Mono',monospace;color:var(--lm-text4);margin-left:auto}
 
-/* ── USE CASE ── */
-.uc-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:18px;transition:border-color .15s}
-.uc-card:hover{border-color:rgba(255,255,255,.15);background:rgba(255,255,255,.05)}
-.uc-title{font-size:14px;font-weight:700;color:#fff;line-height:1.35}
-.uc-desc{font-size:12px;color:rgba(255,255,255,.5);line-height:1.55}
+/* ── USE CASE — light ── */
+.uc-card{background:var(--lm-surface);border:1px solid var(--lm-border);border-radius:10px;padding:18px;transition:all .15s;box-shadow:0 1px 4px rgba(4,14,75,.04)}
+.uc-card:hover{border-color:var(--mk-sky);box-shadow:0 4px 16px rgba(3,145,242,.1)}
+.uc-title{font-size:14px;font-weight:700;color:var(--mk-blue);line-height:1.35}
+.uc-desc{font-size:12px;color:var(--lm-text3);line-height:1.55}
 .uc-tools{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
-.uc-tool{font-size:10px;padding:3px 9px;border-radius:3px;border:1px solid rgba(3,145,242,.3);color:var(--mk-sky);background:rgba(3,145,242,.07)}
+.uc-tool{font-size:10px;padding:3px 9px;border-radius:3px;border:1px solid #bae6fd;color:#0369a1;background:#e0f2fe}
 
-/* ── PERSONA DROPDOWN ── */
-.persona-dropdown-wrap{display:flex;align-items:center;gap:12px;margin-bottom:24px;padding:12px 18px;background:rgba(3,145,242,.06);border:1px solid rgba(3,145,242,.18);border-radius:8px}
-.persona-dropdown-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.45);white-space:nowrap;display:flex;align-items:center;gap:6px}
+/* ── PERSONA DROPDOWN — light ── */
+.persona-dropdown-wrap{display:flex;align-items:center;gap:12px;margin-bottom:24px;padding:12px 18px;background:var(--lm-surface);border:1px solid var(--lm-border);border-radius:8px;box-shadow:0 1px 4px rgba(4,14,75,.05)}
+.persona-dropdown-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--lm-text3);white-space:nowrap;display:flex;align-items:center;gap:6px}
 .persona-dropdown-label svg{width:13px;height:13px;stroke:var(--mk-sky);fill:none}
-.persona-select{appearance:none;-webkit-appearance:none;background:rgba(4,22,119,.7);border:1px solid rgba(3,145,242,.35);border-radius:6px;color:#fff;font-size:13px;font-weight:600;font-family:'DM Sans',sans-serif;padding:8px 36px 8px 14px;cursor:pointer;outline:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%230391F2' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;min-width:210px;transition:border-color .15s}
+.persona-select{appearance:none;-webkit-appearance:none;background:#ffffff;border:1px solid var(--lm-border2);border-radius:6px;color:#111827;font-size:13px;font-weight:600;font-family:'DM Sans',sans-serif;padding:8px 36px 8px 14px;cursor:pointer;outline:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23374151' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;min-width:210px;transition:border-color .15s;box-shadow:0 1px 3px rgba(4,14,75,.06)}
 .persona-select:hover{border-color:var(--mk-sky)}
-.persona-select option{background:#040E4B;color:#fff}
-.persona-desc{font-size:12px;color:rgba(255,255,255,.4);flex:1;line-height:1.4}
+.persona-select:focus{border-color:var(--mk-sky);box-shadow:0 0 0 3px rgba(3,145,242,.15)}
+.persona-select option{background:#ffffff;color:#111827}
+.persona-desc{font-size:12px;color:var(--lm-text3);flex:1;line-height:1.4}
 .persona-badge{font-size:9px;font-weight:700;padding:3px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.05em;flex-shrink:0}
-.persona-badge.marketing{background:rgba(3,145,242,.15);color:var(--mk-sky)}
-.persona-badge.it{background:rgba(232,71,42,.12);color:#fca5a5}
-.persona-badge.finance{background:rgba(34,197,94,.1);color:#86efac}
+.persona-badge.marketing{background:#dbeafe;color:#1e40af}
+.persona-badge.it{background:#fee2e2;color:#991b1b}
+.persona-badge.finance{background:#dcfce7;color:#166534}
 
 /* ── ANIMATIONS ── */
-@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-.page.active{animation:fadeIn .25s ease forwards}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.page.active{animation:fadeIn .2s ease forwards}
 
-/* ── SCROLLBAR ── */
+/* ── SCROLLBAR — light ── */
 ::-webkit-scrollbar{width:5px;height:5px}
-::-webkit-scrollbar-track{background:rgba(255,255,255,.03)}
-::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:3px}
+::-webkit-scrollbar-track{background:var(--lm-surface2)}
+::-webkit-scrollbar-thumb{background:var(--lm-border2);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:#b0b8d0}
 
 /* ── PERSONA VISIBILITY ── */
 .persona-marketing,.persona-it,.persona-finance{display:none}
@@ -312,13 +316,102 @@ body.finance .persona-finance{display:block}
 body.marketing .persona-all,.body.it .persona-all,.body.finance .persona-all{display:block}
 .persona-all{display:block}
 
-/* ── ROI CHART ── */
-.bar-chart{display:flex;align-items:flex-end;gap:10px;height:140px;padding:0 0 0 0}
+/* ── ROI CHART — light ── */
+.bar-chart{display:flex;align-items:flex-end;gap:10px;height:140px}
 .bar-col{display:flex;flex-direction:column;align-items:center;flex:1}
 .bar{width:100%;border-radius:4px 4px 0 0;transition:height .5s ease;min-height:4px;position:relative}
-.bar:hover{filter:brightness(1.2)}
-.bar-label{font-size:10px;font-weight:700;color:rgba(255,255,255,.5);margin-top:6px;text-align:center}
-.bar-val{font-size:10px;font-weight:700;color:#fff;position:absolute;top:-18px;left:50%;transform:translateX(-50%);white-space:nowrap}
+.bar:hover{filter:brightness(1.1)}
+.bar-label{font-size:10px;font-weight:600;color:var(--lm-text3);margin-top:6px;text-align:center}
+.bar-val{font-size:10px;font-weight:700;color:var(--mk-blue);position:absolute;top:-18px;left:50%;transform:translateX(-50%);white-space:nowrap}
+
+/* ── NOTES POPOVER ── */
+.notes-popover-wrap{position:relative;display:inline-block}
+.notes-btn{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:4px;border:1px solid var(--lm-border2);background:var(--lm-surface2);color:var(--lm-text3);font-size:10px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;transition:all .12s;white-space:nowrap}
+.notes-btn:hover{border-color:var(--mk-sky);color:var(--mk-sky);background:#EFF6FF}
+.notes-btn svg{width:11px;height:11px;stroke:currentColor;fill:none;flex-shrink:0}
+.notes-popover{display:none;position:fixed;z-index:9999;width:280px;background:#fff;border:1px solid var(--lm-border);border-radius:8px;box-shadow:0 8px 28px rgba(4,14,75,.18);padding:13px 15px;pointer-events:auto}
+.notes-popover.open{display:block}
+.notes-popover-text{font-size:12px;color:var(--lm-text2);line-height:1.65}
+
+/* ── STACK VIEW ── */
+.stack-layer{margin-bottom:28px}
+.stack-layer-header{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-radius:10px 10px 0 0;border:1px solid var(--lm-border);border-bottom:none}
+.stack-layer-title{font-size:15px;font-weight:700;color:#fff}
+.stack-layer-sub{font-size:11px;color:rgba(255,255,255,.6)}
+.stack-layer-meta{display:flex;align-items:center;gap:10px}
+.stack-layer-badge{font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;background:rgba(255,255,255,.15);color:#fff}
+.stack-layer-score{font-size:11px;font-weight:700;color:rgba(255,255,255,.8)}
+.stack-layer-body{background:var(--lm-surface);border:1px solid var(--lm-border);border-radius:0 0 10px 10px;padding:16px;display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
+/* Stack cards */
+.stack-card{background:var(--lm-surface);border-radius:7px;padding:12px 13px;cursor:pointer;transition:all .15s;position:relative;overflow:hidden;border:1px solid var(--lm-border)}
+.stack-card:hover{box-shadow:0 4px 16px rgba(4,14,75,.1);border-color:#A5B4FC;transform:translateY(-1px)}
+.stack-card-name{font-size:12px;font-weight:700;color:var(--mk-blue);line-height:1.3;margin-bottom:4px}
+.stack-card-cat{font-size:10px;color:var(--lm-text4);margin-bottom:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.stack-card-metrics{display:flex;align-items:center;justify-content:space-between;margin-bottom:7px}
+.stack-card-util{font-size:11px;font-weight:700}
+.stack-card-health{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.stack-card-bar{height:3px;background:var(--lm-border);border-radius:2px;margin-bottom:6px}
+.stack-card-bar-fill{height:100%;border-radius:2px}
+.stack-card-status{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.risk-item{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--lm-border2)}
+.risk-item:last-child{border-bottom:none}
+.risk-icon{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.risk-icon.red{background:var(--mk-red)}
+.risk-icon.gold{background:#f59e0b}
+.risk-icon.green{background:#22c55e}
+.risk-text{font-size:12px;color:var(--lm-text2);line-height:1.5}
+
+/* ── LIGHT MODE OVERRIDES — catches JS-rendered inline dark styles ── */
+/* Page header text */
+.page .ph h1,.section-head h2,.uc-title,.diagram-card-title,.ai-rec-title,
+.red-group-title,.int-from,.int-to{color:var(--mk-blue) !important}
+
+/* Muted body text across components */
+.ph p,.section-sub,.uc-desc,.diagram-card-desc,.ai-rec-body,
+.red-group-sub,.red-savings,.stat-sub,.stat-lbl,.bar-label{color:var(--lm-text3) !important}
+
+/* Stat values default to Merkle blue */
+.stat-val,.stat-val.sm{color:var(--mk-blue) !important}
+
+/* Table text */
+.tbl td{color:var(--lm-text2) !important}
+.tbl td strong{color:var(--mk-blue)}
+
+/* Card titles */
+.card-title{color:var(--lm-text3) !important}
+
+/* Score rings on light bg — ensure dark text */
+.score-ring .sval,.score-ring .slbl{color:inherit}
+.score-ring.green{color:#166534 !important}
+.score-ring.gold{color:#92400e !important}
+.score-ring.red{color:#991b1b !important}
+
+/* Exec persona insight block */
+#exec-persona-insight{background:#EFF4FF !important;border-color:#C7D8F8 !important;color:var(--lm-text2) !important}
+#exec-persona-h1{color:var(--mk-blue) !important}
+
+/* AI recs list panel text */
+#ai-recs-list [id^="ai-list-item-"]{background:var(--lm-surface) !important;border-color:var(--lm-border) !important}
+#ai-detail-empty{background:var(--lm-surface2) !important;border-color:var(--lm-border) !important;color:var(--lm-text4) !important}
+
+/* Card-xl on light bg */
+.card-xl .card-title{color:var(--lm-text3) !important}
+
+/* Persona dropdown desc text — inherits from class now */
+
+/* Redundancy persona title */
+#redundancies-persona-title{color:var(--mk-blue) !important}
+
+/* UC persona heading */
+#uc-persona-heading{color:var(--mk-blue) !important}
+#uc-persona-sub,.section-sub{color:var(--lm-text4) !important}
+#uc-count-badge{background:#dbeafe !important;color:#1e40af !important}
+
+/* Matrix heading */
+#uc-matrix-heading{color:var(--mk-blue) !important}
+
+/* Bar chart values */
+.bar-val{color:var(--mk-blue) !important}
 </style>
 </head>
 <body class="marketing">
@@ -372,27 +465,24 @@ body.marketing .persona-all,.body.it .persona-all,.body.finance .persona-all{dis
       <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
       AI recommendations
     </div>
+    <div class="nav-link" onclick="goPage('competitive')" id="nl-competitive">
+      <svg viewBox="0 0 24 24"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+      Competitive analysis
+    </div>
   </div>
   <div class="sidebar-bottom">
+    <div style="margin-bottom:10px">
+      <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.35);margin-bottom:5px">Account</div>
+      <select id="account-select" onchange="switchAccount(this.value)" style="width:100%;appearance:none;-webkit-appearance:none;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#fff;font-size:12px;font-weight:600;font-family:'DM Sans',sans-serif;padding:7px 28px 7px 10px;cursor:pointer;outline:none;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.5)' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E\");background-repeat:no-repeat;background-position:right 8px center">
+        <option value="helix" selected>Helix Health</option>
+        <option value="optima">Optima Care Partners</option>
+        <option value="brightway">Brightway Insurance</option>
+        <option value="summitrx">SummitRx</option>
+      </select>
+    </div>
     <div class="dentsu-tag">a dentsu company</div>
   </div>
 </nav>
-
-<!-- TOP BAR -->
-<div class="persona-bar">
-  <div class="persona-bar-left">
-    <div class="page-title" id="current-page-title">Executive summary</div>
-  </div>
-  <div class="persona-bar-right">
-    <div class="top-stat"><div class="top-stat-val">90</div><div class="top-stat-lbl">Tools tracked</div></div>
-    <div class="top-divider"></div>
-    <div class="top-stat"><div class="top-stat-val" id="hbar-spend">$8.4M</div><div class="top-stat-lbl">Annual spend</div></div>
-    <div class="top-divider"></div>
-    <div class="top-stat"><div class="top-stat-val" style="color:#fbbf24" id="hbar-risk">18</div><div class="top-stat-lbl">At-risk tools</div></div>
-    <div class="top-divider"></div>
-    <div class="top-stat"><div class="top-stat-val" style="color:var(--mk-red)" id="hbar-redundant">12</div><div class="top-stat-lbl">Redundancies</div></div>
-  </div>
-</div>
 
 <!-- MAIN -->
 <div class="main">
@@ -424,7 +514,7 @@ body.marketing .persona-all,.body.it .persona-all,.body.finance .persona-all{dis
   <!-- Persona-driven headline and stats -->
   <div style="margin-bottom:20px">
     <h2 id="exec-persona-h1" style="font-size:18px;font-weight:700;color:#fff;margin-bottom:8px">Tech stack audit: marketing perspective</h2>
-    <div style="background:rgba(3,145,242,.08);border:1px solid rgba(3,145,242,.2);border-radius:8px;padding:13px 16px;font-size:13px;color:rgba(255,255,255,.7);line-height:1.65" id="exec-persona-insight">Your stack has strong campaign execution capability but significant activation gaps.</div>
+    <div style="background:#EFF6FF;border:1px solid #BFDBFE;border-radius:8px;padding:13px 16px;font-size:13px;color:#1e40af;line-height:1.65" id="exec-persona-insight">Your stack has strong campaign execution capability but significant activation gaps.</div>
   </div>
   <div class="stat-row cols4" id="exec-persona-stats" style="margin-bottom:22px">
     <div class="stat blue"><div class="stat-lbl">Campaign tools</div><div class="stat-val sm">23</div><div class="stat-sub">Across email, MAP, content</div></div>
@@ -476,11 +566,11 @@ body.marketing .persona-all,.body.it .persona-all,.body.finance .persona-all{dis
     <div class="card">
       <div class="card-title"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>ROI by tool status</div>
       <div style="display:flex;flex-direction:column;gap:12px;margin-top:4px">
-        <div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px"><span style="color:rgba(255,255,255,.7)">Active — high utilization (28 tools)</span><span style="color:#4ade80;font-weight:700">+320% ROI</span></div><div class="pbar"><div class="pbar-fill green" style="width:85%"></div></div></div>
-        <div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px"><span style="color:rgba(255,255,255,.7)">Active — low utilization (19 tools)</span><span style="color:#fbbf24;font-weight:700">+62% ROI</span></div><div class="pbar"><div class="pbar-fill gold" style="width:40%"></div></div></div>
-        <div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px"><span style="color:rgba(255,255,255,.7)">Implementing (14 tools)</span><span style="color:#93c5fd;font-weight:700">Pending</span></div><div class="pbar"><div class="pbar-fill blue" style="width:20%"></div></div></div>
-        <div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px"><span style="color:rgba(255,255,255,.7)">Redundant / overlapping (12 tools)</span><span style="color:#f87171;font-weight:700">-18% ROI</span></div><div class="pbar"><div class="pbar-fill red" style="width:15%"></div></div></div>
-        <div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px"><span style="color:rgba(255,255,255,.7)">Evaluating / deprecating (17 tools)</span><span style="color:#94a3b8;font-weight:700">Neutral</span></div><div class="pbar"><div class="pbar-fill" style="width:10%;background:#475569"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px"><span style="color:#374151">Active — high utilization (28 tools)</span><span style="color:#166534;font-weight:700">+320% ROI</span></div><div class="pbar"><div class="pbar-fill green" style="width:85%"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px"><span style="color:#374151">Active — low utilization (19 tools)</span><span style="color:#854d0e;font-weight:700">+62% ROI</span></div><div class="pbar"><div class="pbar-fill gold" style="width:40%"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px"><span style="color:#374151">Implementing (14 tools)</span><span style="color:#1e40af;font-weight:700">Pending</span></div><div class="pbar"><div class="pbar-fill blue" style="width:20%"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px"><span style="color:#374151">Redundant / overlapping (12 tools)</span><span style="color:#991b1b;font-weight:700">-18% ROI</span></div><div class="pbar"><div class="pbar-fill red" style="width:15%"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px"><span style="color:#374151">Evaluating / deprecating (17 tools)</span><span style="color:#6B7280;font-weight:700">Neutral</span></div><div class="pbar"><div class="pbar-fill" style="width:10%;background:#CBD5E1"></div></div></div>
       </div>
     </div>
     <div class="card">
@@ -531,27 +621,109 @@ body.marketing .persona-all,.body.it .persona-all,.body.finance .persona-all{dis
   <div class="ph">
     <div class="ph-tag">Tech stack inventory</div>
     <h1>All 90 technologies</h1>
-    <p>Full inventory with status, utilization, cost, and health signals. Click any row to open the detailed drill-down.</p>
+    <p>Full inventory with status, utilization, cost, and health signals. Click any row or card to open the detailed drill-down.</p>
   </div>
-  <div class="filter-bar">
-    <div class="search-box"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="text" id="inv-search" placeholder="Search tools, vendors, categories..." oninput="filterInventory()"/></div>
-    <button class="filter-chip active" onclick="filterCat('all',this)">All</button>
-    <button class="filter-chip" onclick="filterCat('CRM / CDP',this)">CRM / CDP</button>
-    <button class="filter-chip" onclick="filterCat('Email / MAP',this)">Email / MAP</button>
-    <button class="filter-chip" onclick="filterCat('Analytics',this)">Analytics</button>
-    <button class="filter-chip" onclick="filterCat('Infrastructure',this)">Infrastructure</button>
-    <button class="filter-chip" onclick="filterCat('AI / ML',this)">AI / ML</button>
-    <button class="filter-chip" onclick="filterCat('Content',this)">Content</button>
+
+  <!-- View toggle + filters -->
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px;flex-wrap:wrap">
+    <div class="filter-bar" style="margin-bottom:0;flex:1">
+      <div class="search-box"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="text" id="inv-search" placeholder="Search tools, vendors, categories..." oninput="filterInventory()"/></div>
+      <button class="filter-chip active" onclick="filterCat('all',this)">All</button>
+      <button class="filter-chip" onclick="filterCat('CRM / CDP',this)">CRM / CDP</button>
+      <button class="filter-chip" onclick="filterCat('Email / MAP',this)">Email / MAP</button>
+      <button class="filter-chip" onclick="filterCat('Analytics',this)">Analytics</button>
+      <button class="filter-chip" onclick="filterCat('Infrastructure',this)">Infrastructure</button>
+      <button class="filter-chip" onclick="filterCat('AI / ML',this)">AI / ML</button>
+      <button class="filter-chip" onclick="filterCat('Content',this)">Content</button>
+    </div>
+    <!-- View toggle -->
+    <div style="display:flex;background:var(--lm-surface2);border:1px solid var(--lm-border);border-radius:6px;padding:3px;gap:2px;flex-shrink:0">
+      <button id="inv-toggle-table" onclick="setInvView('table')" style="padding:6px 14px;border:none;border-radius:4px;font-size:11px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer;display:flex;align-items:center;gap:5px;background:var(--mk-blue);color:#fff;transition:all .12s">
+        <svg viewBox="0 0 24 24" style="width:12px;height:12px;stroke:currentColor;fill:none"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        Table
+      </button>
+      <button id="inv-toggle-stack" onclick="setInvView('stack')" style="padding:6px 14px;border:none;border-radius:4px;font-size:11px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer;display:flex;align-items:center;gap:5px;background:transparent;color:var(--lm-text3);transition:all .12s">
+        <svg viewBox="0 0 24 24" style="width:12px;height:12px;stroke:currentColor;fill:none"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Stack view
+      </button>
+    </div>
   </div>
-  <div class="tbl-wrap">
-    <table class="tbl">
-      <thead><tr>
-        <th>Tool</th><th>Vendor</th><th>Category</th><th>Status</th><th>Utilization</th>
-        <th id="inv-col4">Annual cost</th>
-        <th>Health</th><th>Users</th>
-      </tr></thead>
-      <tbody id="inv-body"></tbody>
-    </table>
+
+  <!-- Table view -->
+  <div id="inv-table-view">
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr>
+          <th>Tool</th><th>Vendor</th><th>Category</th><th>Status</th><th>Utilization</th>
+          <th id="inv-col4">Annual cost</th>
+          <th>Health</th><th>Users</th><th>Potential redundancy</th>
+        </tr></thead>
+        <tbody id="inv-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Stack view -->
+  <div id="inv-stack-view" style="display:none">
+    <!-- Filter bar -->
+    <div style="background:var(--lm-surface);border:1px solid var(--lm-border);border-radius:8px;padding:12px 16px;margin-bottom:16px">
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+
+        <!-- Status filters -->
+        <span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--lm-text4);white-space:nowrap">Status</span>
+        <div style="display:flex;gap:5px;flex-wrap:wrap" id="sv-status-filters">
+          <button class="sv-filter-btn sv-status active" data-val="Active"
+            style="display:flex;align-items:center;gap:5px;padding:5px 11px;border-radius:20px;font-size:11px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;border:1px solid #86efac;background:#dcfce7;color:#166534;transition:all .12s"
+            onclick="toggleStackFilter('status','Active',this)">
+            <div style="width:8px;height:8px;border-radius:2px;background:#22c55e;flex-shrink:0"></div>Active
+          </button>
+          <button class="sv-filter-btn sv-status active" data-val="Evaluating"
+            style="display:flex;align-items:center;gap:5px;padding:5px 11px;border-radius:20px;font-size:11px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;border:1px solid #fde68a;background:#fef9c3;color:#854d0e;transition:all .12s"
+            onclick="toggleStackFilter('status','Evaluating',this)">
+            <div style="width:8px;height:8px;border-radius:2px;background:#f59e0b;flex-shrink:0"></div>Evaluating
+          </button>
+          <button class="sv-filter-btn sv-status active" data-val="Implementing"
+            style="display:flex;align-items:center;gap:5px;padding:5px 11px;border-radius:20px;font-size:11px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;border:1px solid #bfdbfe;background:#dbeafe;color:#1e40af;transition:all .12s"
+            onclick="toggleStackFilter('status','Implementing',this)">
+            <div style="width:8px;height:8px;border-radius:2px;background:#0391F2;flex-shrink:0"></div>Implementing
+          </button>
+          <button class="sv-filter-btn sv-status active" data-val="Deprecated"
+            style="display:flex;align-items:center;gap:5px;padding:5px 11px;border-radius:20px;font-size:11px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;border:1px solid #fca5a5;background:#fee2e2;color:#991b1b;transition:all .12s"
+            onclick="toggleStackFilter('status','Deprecated',this)">
+            <div style="width:8px;height:8px;border-radius:2px;background:#E8472A;flex-shrink:0"></div>Deprecated
+          </button>
+        </div>
+
+        <div style="width:1px;height:20px;background:var(--lm-border)"></div>
+
+        <!-- Health filters -->
+        <span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--lm-text4);white-space:nowrap">Health</span>
+        <div style="display:flex;gap:5px;flex-wrap:wrap" id="sv-health-filters">
+          <button class="sv-filter-btn sv-health active" data-val="h"
+            style="display:flex;align-items:center;gap:5px;padding:5px 11px;border-radius:20px;font-size:11px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;border:1px solid #86efac;background:#dcfce7;color:#166534;transition:all .12s"
+            onclick="toggleStackFilter('health','h',this)">
+            <div style="width:8px;height:8px;border-radius:50%;background:#22c55e;flex-shrink:0"></div>Healthy
+          </button>
+          <button class="sv-filter-btn sv-health active" data-val="m"
+            style="display:flex;align-items:center;gap:5px;padding:5px 11px;border-radius:20px;font-size:11px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;border:1px solid #fde68a;background:#fef9c3;color:#854d0e;transition:all .12s"
+            onclick="toggleStackFilter('health','m',this)">
+            <div style="width:8px;height:8px;border-radius:50%;background:#f59e0b;flex-shrink:0"></div>Warning
+          </button>
+          <button class="sv-filter-btn sv-health active" data-val="l"
+            style="display:flex;align-items:center;gap:5px;padding:5px 11px;border-radius:20px;font-size:11px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;border:1px solid #fca5a5;background:#fee2e2;color:#991b1b;transition:all .12s"
+            onclick="toggleStackFilter('health','l',this)">
+            <div style="width:8px;height:8px;border-radius:50%;background:#E8472A;flex-shrink:0"></div>At risk
+          </button>
+        </div>
+
+        <!-- Clear / count -->
+        <div style="margin-left:auto;display:flex;align-items:center;gap:10px">
+          <span id="sv-filter-count" style="font-size:11px;font-weight:600;color:var(--lm-text4)">Showing all 90 tools</span>
+          <button onclick="clearStackFilters()" style="padding:4px 10px;border-radius:4px;font-size:11px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;border:1px solid var(--lm-border);background:transparent;color:var(--lm-text3);transition:all .12s" onmouseover="this.style.borderColor='var(--mk-sky)';this.style.color='var(--mk-sky)'" onmouseout="this.style.borderColor='var(--lm-border)';this.style.color='var(--lm-text3)'">Reset</button>
+        </div>
+      </div>
+    </div>
+    <div id="inv-stack-grid"></div>
   </div>
 </div>
 
@@ -582,7 +754,7 @@ body.marketing .persona-all,.body.it .persona-all,.body.finance .persona-all{dis
   <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:18px;gap:12px;flex-wrap:wrap">
     <div>
       <div style="font-size:18px;font-weight:700;color:#fff;margin-bottom:4px" id="uc-persona-heading">Use cases — marketing view</div>
-      <div style="font-size:12px;color:rgba(255,255,255,.45);line-height:1.5;max-width:680px" id="uc-persona-sub">Showing use cases relevant to campaign execution, content, personalization, and audience activation.</div>
+      <div style="font-size:12px;color:#6B7280;line-height:1.5;max-width:680px" id="uc-persona-sub">Showing use cases relevant to campaign execution, content, personalization, and audience activation.</div>
     </div>
     <span style="font-size:11px;font-weight:700;padding:5px 14px;border-radius:20px;background:rgba(3,145,242,.12);color:var(--mk-sky);white-space:nowrap" id="uc-count-badge">8 use cases</span>
   </div>
@@ -609,34 +781,26 @@ body.marketing .persona-all,.body.it .persona-all,.body.finance .persona-all{dis
   <div class="ph">
     <div class="ph-tag">Integration assessment</div>
     <h1>System connections and data flows</h1>
-    <p>All active integrations assessed for latency, reliability, and documentation. High-value gaps identified below.</p>
+    <p>All 57 integrations in one view — active, degraded, critical, and not yet configured. Filter by status, type, or value.</p>
   </div>
   <div class="stat-row cols5">
-    <div class="stat blue"><div class="stat-lbl">Active integrations</div><div class="stat-val">47</div></div>
-    <div class="stat green"><div class="stat-lbl">Healthy</div><div class="stat-val" style="color:#4ade80">31</div></div>
-    <div class="stat gold"><div class="stat-lbl">Degraded</div><div class="stat-val" style="color:#fbbf24">12</div></div>
-    <div class="stat red"><div class="stat-lbl">Critical / down</div><div class="stat-val" style="color:#f87171">4</div></div>
-    <div class="stat red"><div class="stat-lbl">Not yet set up</div><div class="stat-val" style="color:#f87171">10</div></div>
+    <div class="stat blue"><div class="stat-lbl">Total integrations</div><div class="stat-val">57</div></div>
+    <div class="stat green"><div class="stat-lbl">Healthy</div><div class="stat-val" style="color:#166534">31</div></div>
+    <div class="stat gold"><div class="stat-lbl">Degraded</div><div class="stat-val" style="color:#854d0e">12</div></div>
+    <div class="stat red"><div class="stat-lbl">Critical / down</div><div class="stat-val" style="color:#991b1b">4</div></div>
+    <div class="stat red"><div class="stat-lbl">Not configured</div><div class="stat-val" style="color:#991b1b">10</div></div>
   </div>
   <div class="filter-bar" style="margin-bottom:14px">
-    <button class="filter-chip active" onclick="filterInt('all',this)">All active</button>
+    <button class="filter-chip active" onclick="filterInt('all',this)">All</button>
     <button class="filter-chip" onclick="filterInt('ok',this)">Healthy</button>
     <button class="filter-chip" onclick="filterInt('warn',this)">Degraded</button>
     <button class="filter-chip" onclick="filterInt('down',this)">Critical / down</button>
+    <button class="filter-chip" onclick="filterInt('notsetup',this)">Not configured</button>
     <button class="filter-chip" onclick="filterInt('api',this)">API</button>
     <button class="filter-chip" onclick="filterInt('webhook',this)">Webhook</button>
     <button class="filter-chip" onclick="filterInt('etl',this)">ETL / Batch</button>
   </div>
-  <div class="tbl-wrap" id="int-list" style="margin-bottom:28px"></div>
-
-  <!-- Not setup integrations -->
-  <div class="section-block">
-    <div class="section-head">
-      <h2>Integrations not yet configured</h2>
-      <span class="section-sub">10 high-value connections identified — ranked by business value</span>
-    </div>
-    <div id="int-notsetup-list"></div>
-  </div>
+  <div class="tbl-wrap" id="int-list"></div>
 </div>
 
 <!-- ══════════════════════════════
@@ -651,7 +815,7 @@ body.marketing .persona-all,.body.it .persona-all,.body.finance .persona-all{dis
   <div class="ph">
     <div class="ph-tag">Redundancies</div>
     <h1>Overlapping capabilities and waste</h1>
-    <p>12 redundant tool groups detected. Estimated $1.2M in recoverable annual spend.</p>
+    <p>12 redundant tool groups detected. Estimated $1.2M in recoverable annual spend. Select a group to see the full analysis and action plan.</p>
   </div>
 
   <div class="persona-dropdown-wrap">
@@ -667,15 +831,29 @@ body.marketing .persona-all,.body.it .persona-all,.body.finance .persona-all{dis
     <div class="persona-desc" id="persona-desc-redundancies">Focused on campaign tools, content platforms, and audience activation efficiency.</div>
     <span class="persona-badge marketing" id="persona-badge-redundancies">Marketing</span>
   </div>
-  <div style="margin-bottom:18px">
-    <div style="font-size:15px;font-weight:700;color:#fff" id="redundancies-persona-title">Redundancies affecting marketing operations</div>
+
+  <div class="stat-row cols3" style="margin-bottom:20px">
+    <div class="stat red"><div class="stat-lbl">Redundant groups</div><div class="stat-val" style="color:#991b1b">12</div></div>
+    <div class="stat red"><div class="stat-lbl">Recoverable spend</div><div class="stat-val sm" style="color:#991b1b">$1.2M</div></div>
+    <div class="stat gold"><div class="stat-lbl">Tools to evaluate</div><div class="stat-val" style="color:#854d0e">19</div></div>
   </div>
-  <div class="stat-row cols3">
-    <div class="stat red"><div class="stat-lbl">Redundant groups</div><div class="stat-val" style="color:#f87171">12</div></div>
-    <div class="stat red"><div class="stat-lbl">Recoverable spend</div><div class="stat-val sm" style="color:#f87171">$1.2M</div></div>
-    <div class="stat gold"><div class="stat-lbl">Tools to evaluate</div><div class="stat-val" style="color:#fbbf24">19</div></div>
+
+  <div style="margin-bottom:12px">
+    <div style="font-size:15px;font-weight:700" id="redundancies-persona-title">Redundancies affecting marketing operations</div>
   </div>
-  <div id="redundancy-list"></div>
+
+  <!-- Split layout: list left, detail right -->
+  <div style="display:grid;grid-template-columns:300px 1fr;gap:16px;align-items:start">
+    <div id="redundancy-list"></div>
+    <div id="redundancy-detail" style="position:sticky;top:20px">
+      <div id="red-detail-empty" style="background:var(--lm-surface2);border:1px solid var(--lm-border);border-radius:10px;padding:40px 24px;text-align:center;color:var(--lm-text4)">
+        <svg viewBox="0 0 24 24" style="width:32px;height:32px;stroke:currentColor;fill:none;margin:0 auto 12px;display:block;opacity:.35"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <div style="font-size:13px;font-weight:600;margin-bottom:4px">Select a redundancy group</div>
+        <div style="font-size:12px">Click any item in the list to see the full overlap analysis, affected tools, and Now / Next / Later action plan.</div>
+      </div>
+      <div id="red-detail-panel" style="display:none"></div>
+    </div>
+  </div>
 </div>
 
 <!-- ══════════════════════════════
@@ -725,7 +903,7 @@ body.marketing .persona-all,.body.it .persona-all,.body.finance .persona-all{dis
   <div style="display:grid;grid-template-columns:320px 1fr;gap:16px;align-items:start">
     <div id="ai-recs-list"></div>
     <div id="ai-recs-detail" style="position:sticky;top:72px">
-      <div id="ai-detail-empty" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:40px 24px;text-align:center;color:rgba(255,255,255,.25)">
+      <div id="ai-detail-empty" style="background:#F8F9FC;border:1px solid #E2E6EF;border-radius:10px;padding:40px 24px;text-align:center;color:#9CA3AF">
         <svg viewBox="0 0 24 24" style="width:32px;height:32px;stroke:currentColor;fill:none;margin:0 auto 12px;display:block;opacity:.4"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
         <div style="font-size:13px;font-weight:600;margin-bottom:4px">Select a recommendation</div>
         <div style="font-size:12px">Click any item in the list to see the full detail, impact estimate, and Now / Next / Later action plan.</div>
@@ -733,6 +911,23 @@ body.marketing .persona-all,.body.it .persona-all,.body.finance .persona-all{dis
       <div id="ai-detail-panel" style="display:none"></div>
     </div>
   </div>
+</div>
+
+<!-- ══════════════════════════════
+     COMPETITIVE ANALYSIS
+══════════════════════════════ -->
+<div class="page" id="pg-competitive">
+  <div class="ph">
+    <div class="ph-tag">Competitive analysis</div>
+    <h1>Marketing stack — competitive landscape</h1>
+    <p>Comparison limited to the marketing technology stack only: CMS, CRM, email/MAP, intelligence, data infrastructure, and digital presence. This view reflects publicly available signals and estimated maturity scoring.</p>
+  </div>
+
+  <!-- Score summary strip -->
+  <div id="comp-score-strip" style="margin-bottom:28px"></div>
+
+  <!-- Category comparison table -->
+  <div id="comp-grid"></div>
 </div>
 
 </div><!-- /main -->
@@ -901,28 +1096,28 @@ var TOOLS = [
 
 // Integrations data
 var INTEGRATIONS = [
-  {from:'Adobe Experience Platform',to:'Adobe Journey Optimizer',type:'api',health:'ok',latency:'42ms',doc:'Full'},
-  {from:'Adobe Journey Optimizer',to:'Salesforce CRM',type:'api',health:'ok',latency:'68ms',doc:'Full'},
-  {from:'Snowflake',to:'Databricks',type:'api',health:'ok',latency:'95ms',doc:'Full'},
-  {from:'Snowflake',to:'Looker',type:'api',health:'ok',latency:'112ms',doc:'Partial'},
-  {from:'Snowflake',to:'dbt Cloud',type:'api',health:'ok',latency:'28ms',doc:'Full'},
-  {from:'Kafka',to:'Snowflake',type:'streaming',health:'ok',latency:'18ms',doc:'Full'},
-  {from:'Kafka',to:'Adobe Experience Platform',type:'streaming',health:'ok',latency:'22ms',doc:'Partial'},
-  {from:'GitHub',to:'Datadog',type:'webhook',health:'ok',latency:'—',doc:'Full'},
-  {from:'Okta',to:'All SaaS tools (SSO)',type:'saml/oidc',health:'ok',latency:'—',doc:'Full'},
-  {from:'Fivetran',to:'Snowflake',type:'etl',health:'ok',latency:'Batch',doc:'Full'},
-  {from:'Salesforce Health Cloud',to:'Adobe Experience Platform',type:'api',health:'warn',latency:'320ms',doc:'Partial'},
-  {from:'Mulesoft',to:'Salesforce Health Cloud',type:'api',health:'warn',latency:'890ms',doc:'Partial'},
-  {from:'Mulesoft',to:'Adobe Journey Optimizer',type:'api',health:'warn',latency:'850ms',doc:'None'},
-  {from:'Adobe Analytics',to:'Adobe Experience Platform',type:'etl',health:'warn',latency:'4hr batch',doc:'Partial'},
-  {from:'Azure Data Factory',to:'Snowflake',type:'etl',health:'warn',latency:'90min batch',doc:'Partial'},
-  {from:'HubSpot',to:'Salesforce CRM',type:'api',health:'warn',latency:'180ms',doc:'None'},
-  {from:'Zapier (shadow IT)',to:'Salesforce CRM',type:'webhook',health:'warn',latency:'varies',doc:'None'},
-  {from:'Boomi',to:'SAP S/4HANA',type:'etl',health:'warn',latency:'2hr batch',doc:'None'},
-  {from:'Adobe Target',to:'Adobe Experience Manager',type:'api',health:'down',latency:'N/A',doc:'None'},
-  {from:'Klaviyo',to:'Shopify',type:'api',health:'down',latency:'N/A',doc:'None'},
-  {from:'H2O.ai',to:'Snowflake',type:'api',health:'down',latency:'N/A',doc:'None'},
-  {from:'Pardot',to:'Salesforce CRM',type:'api',health:'down',latency:'N/A',doc:'None'},
+  {from:'Adobe Experience Platform',to:'Adobe Journey Optimizer',type:'api',health:'ok',latency:'42ms',doc:'Full',value:'High',notes:'Core activation pipeline — AEP segments feed directly into AJO journey triggers. Any latency here cascades to email/SMS send delays.'},
+  {from:'Adobe Journey Optimizer',to:'Salesforce CRM',type:'api',health:'ok',latency:'68ms',doc:'Full',value:'High',notes:'Bi-directional contact sync ensures campaign opt-outs and journey status flow back to Salesforce in near real-time. Critical for compliance and sales handoff.'},
+  {from:'Snowflake',to:'Databricks',type:'api',health:'ok',latency:'95ms',doc:'Full',value:'High',notes:'Feature engineering pipeline — Snowflake curated data feeds Databricks for ML model training and scoring. High throughput, well optimized.'},
+  {from:'Snowflake',to:'Looker',type:'api',health:'ok',latency:'112ms',doc:'Partial',value:'Medium',notes:'Self-serve BI semantic layer. Partial documentation means new analysts must reverse-engineer some LookML models. Documentation sprint recommended.'},
+  {from:'Snowflake',to:'dbt Cloud',type:'api',health:'ok',latency:'28ms',doc:'Full',value:'High',notes:'Transformation layer — dbt models run against Snowflake to produce curated analytics marts. Fastest and most reliable integration in the stack.'},
+  {from:'Kafka',to:'Snowflake',type:'streaming',health:'ok',latency:'18ms',doc:'Full',value:'High',notes:'Real-time CDC pipeline — member behavioral events stream from Kafka into Snowflake landing zone within ~20ms. Underpins AEP real-time profiles.'},
+  {from:'Kafka',to:'Adobe Experience Platform',type:'streaming',health:'ok',latency:'22ms',doc:'Partial',value:'High',notes:'Streams enriched member events into AEP for real-time segmentation. Partial doc means the schema mapping is undocumented — risk at team transitions.'},
+  {from:'GitHub',to:'Datadog',type:'webhook',health:'ok',latency:'—',doc:'Full',value:'Medium',notes:'Deployment markers from GitHub Actions sent to Datadog — enables correlation between code deploys and performance anomalies.'},
+  {from:'Okta',to:'All SaaS tools (SSO)',type:'saml/oidc',health:'ok',latency:'—',doc:'Full',value:'High',notes:'Identity perimeter across 90 tools. All onboarding and offboarding flows through Okta SSO. Highest governance ROI in the stack.'},
+  {from:'Fivetran',to:'Snowflake',type:'etl',health:'ok',latency:'Batch',doc:'Full',value:'High',notes:'Managed ELT connectors for SaaS sources (Salesforce, Google Ads, Meta Ads). Replaces custom pipeline maintenance — 12 connectors active.'},
+  {from:'Salesforce Health Cloud',to:'Adobe Experience Platform',type:'api',health:'warn',latency:'320ms',doc:'Partial',value:'High',notes:'SLA breach — 320ms vs 200ms target. Mulesoft middleware is the bottleneck. Member profile data freshness in AEP is affected. WS1 replacement in progress.'},
+  {from:'Mulesoft',to:'Salesforce Health Cloud',type:'api',health:'warn',latency:'890ms',doc:'Partial',value:'Medium',notes:'Critical SLA breach — 890ms vs 400ms target. Mulesoft contract expires Feb 2026. WS1 microservices will replace this. Do not invest in optimization.'},
+  {from:'Mulesoft',to:'Adobe Journey Optimizer',type:'api',health:'warn',latency:'850ms',doc:'None',value:'Medium',notes:'No documentation and 850ms latency. Journey trigger delays caused by this integration are impacting time-sensitive campaigns. WS1 replacement is the fix.'},
+  {from:'Adobe Analytics',to:'Adobe Experience Platform',type:'etl',health:'warn',latency:'4hr batch',doc:'Partial',value:'Low',notes:'4-hour batch delay means behavioral data in AEP is stale. Adobe Analytics is being deprecated — this integration will be retired with it. No action required.'},
+  {from:'Azure Data Factory',to:'Snowflake',type:'etl',health:'warn',latency:'90min batch',doc:'Partial',value:'Medium',notes:'Legacy batch ETL — 90-min lag for legacy source systems. Snowflake native connectors can replace this at the Jan 2026 ADF contract expiry.'},
+  {from:'HubSpot',to:'Salesforce CRM',type:'api',health:'warn',latency:'180ms',doc:'None',value:'Low',notes:'Undocumented shadow integration. HubSpot is being deprecated — this connection should be terminated when HubSpot is migrated off.'},
+  {from:'Zapier (shadow IT)',to:'Salesforce CRM',type:'webhook',health:'warn',latency:'varies',doc:'None',value:'Low',notes:'Shadow IT. No governance, no documentation, variable latency. Business teams are routing data through Zapier without IT oversight. Security risk.'},
+  {from:'Boomi',to:'SAP S/4HANA',type:'etl',health:'warn',latency:'2hr batch',doc:'None',value:'Low',notes:'Legacy ERP integration with no documentation. Boomi contract expires Dec 2025. Integration must be migrated or terminated before then.'},
+  {from:'Adobe Target',to:'Adobe Experience Manager',type:'api',health:'down',latency:'N/A',doc:'None',value:'Low',notes:'Deprecated. Adobe Target is being sunset — this integration is intentionally offline. Personalization is moving to AJO + AEM EDS blocks.'},
+  {from:'Klaviyo',to:'Shopify',type:'api',health:'down',latency:'N/A',doc:'None',value:'Low',notes:'Deprecated. Klaviyo e-commerce email is being terminated. This integration has been disabled as part of the MAP consolidation to AJO.'},
+  {from:'H2O.ai',to:'Snowflake',type:'api',health:'down',latency:'N/A',doc:'None',value:'Low',notes:'Deprecated. H2O.ai contract expires Dec 2025 and is being replaced by Databricks AutoML. This connection is offline and will not be restored.'},
+  {from:'Pardot',to:'Salesforce CRM',type:'api',health:'down',latency:'N/A',doc:'None',value:'Low',notes:'Deprecated. Pardot is being terminated at Jan 2026. This connection is offline as part of the Marketo migration. Do not restore.'},
 ];
 
 // Integrations not yet set up — identified as high-value gaps
@@ -941,18 +1136,162 @@ var INTEGRATIONS_NOTSETUP = [
 
 // Redundancies
 var REDUNDANCIES = [
-  {title:'Email / MAP — SFMC + AJO + Klaviyo + Iterable',sub:'4 email platforms with overlapping capabilities. AJO is the strategic winner.',tools:[{n:'AJO',c:'keep'},{n:'SFMC (legacy)',c:'remove'},{n:'Klaviyo',c:'remove'},{n:'Iterable',c:'remove'}],savings:'$1.1M',action:'Migration in progress via WS7. Klaviyo and Iterable to be terminated immediately.'},
-  {title:'BI / Analytics — Tableau + Adobe Analytics + Domo + CJA',sub:'4 analytics tools with heavy overlap. Consolidate to 2.',tools:[{n:'Looker',c:'keep'},{n:'Power BI',c:'keep'},{n:'Tableau',c:'evaluate'},{n:'Adobe Analytics',c:'remove'},{n:'Domo',c:'remove'},{n:'CJA',c:'evaluate'}],savings:'$560K',action:'Deprecate Adobe Analytics. Exit Domo immediately. Evaluate CJA vs Mixpanel.'},
-  {title:'CRM — HubSpot + Dynamics 365 overlap with SFDC',sub:'HubSpot and Dynamics used by small teams — full overlap with Salesforce Sales Cloud.',tools:[{n:'Salesforce CRM',c:'keep'},{n:'HubSpot',c:'remove'},{n:'Dynamics 365',c:'evaluate'}],savings:'$155K',action:'Migrate HubSpot users to Salesforce. Evaluate Dynamics 365 consolidation in H2.'},
-  {title:'Video hosting — Wistia + Brightcove',sub:'Two video platforms with overlapping use cases.',tools:[{n:'Wistia',c:'keep'},{n:'Brightcove',c:'evaluate'}],savings:'$65K',action:'Evaluate Brightcove live streaming requirements. If not needed, terminate.'},
-  {title:'Social listening — Sprinklr + Brandwatch',sub:'Sprinklr includes listening capabilities — Brandwatch is redundant.',tools:[{n:'Sprinklr',c:'keep'},{n:'Brandwatch',c:'remove'}],savings:'$88K',action:'Enable Sprinklr listening module. Terminate Brandwatch at next renewal.'},
-  {title:'ML platforms — SageMaker + H2O + Databricks',sub:'Three ML platforms with overlapping model training capabilities.',tools:[{n:'Databricks',c:'keep'},{n:'SageMaker',c:'evaluate'},{n:'H2O.ai',c:'remove'}],savings:'$195K',action:'Terminate H2O.ai immediately. Evaluate SageMaker vs Databricks for model serving.'},
-  {title:'Project management — Monday + Workfront + Jira',sub:'Monday.com is used by one team and overlaps with Workfront and Jira.',tools:[{n:'Workfront',c:'keep'},{n:'Jira',c:'keep'},{n:'Monday.com',c:'remove'}],savings:'$48K',action:'Migrate Monday team to Workfront. Terminate at next renewal.'},
-  {title:'Integration / ETL — Mulesoft + Boomi + ADF',sub:'Three integration platforms with overlapping ETL/API gateway use cases.',tools:[{n:'AWS EventBridge',c:'keep'},{n:'Mulesoft',c:'remove'},{n:'Boomi',c:'remove'},{n:'ADF',c:'evaluate'}],savings:'$375K',action:'Mulesoft contract expires Feb 2026 — do not renew. Exit Boomi at Dec 2025 expiry.'},
-  {title:'Session replay — FullStory + Hotjar',sub:'Partial overlap in heatmaps and session replay.',tools:[{n:'FullStory',c:'keep'},{n:'Hotjar',c:'evaluate'}],savings:'$18K',action:'Evaluate if Hotjar provides distinct value. If not, consolidate to FullStory.'},
-  {title:'Personalization — Adobe Target + Dynamic Yield evaluation + RT-CDP',sub:'Target being deprecated. Dynamic Yield evaluation may create new redundancy.',tools:[{n:'RT-CDP + AJO',c:'keep'},{n:'Adobe Target',c:'remove'},{n:'Dynamic Yield',c:'evaluate'}],savings:'$95K',action:'Complete Adobe Target deprecation. Do not adopt Dynamic Yield unless AJO cannot cover use case.'},
-  {title:'B2B MAP — Marketo + Pardot',sub:'Both platforms used for B2B demand gen — Pardot is fully redundant.',tools:[{n:'Marketo',c:'keep'},{n:'Pardot',c:'remove'}],savings:'$85K',action:'Migrate remaining Pardot programs to Marketo. Contract expires Jan 2026.'},
-  {title:'SIEM — Splunk + Microsoft Sentinel',sub:'Sentinel is included in M365 E5 license. Splunk is $220K/yr.',tools:[{n:'Microsoft Sentinel',c:'keep'},{n:'Splunk',c:'evaluate'}],savings:'$220K',action:'Complete Sentinel evaluation. If capable, sunset Splunk at Oct 2026 renewal.'},
+  {
+    id:'red1',
+    title:'Email / MAP — SFMC + AJO + Klaviyo + Iterable',
+    sub:'4 email platforms with overlapping capabilities. AJO is the strategic winner.',
+    tools:[{n:'AJO',c:'keep'},{n:'SFMC (legacy)',c:'remove'},{n:'Klaviyo',c:'remove'},{n:'Iterable',c:'remove'}],
+    savings:'$1.1M',priority:'Critical',category:'Email / MAP',
+    detail:'Salesforce Marketing Cloud ($920K/yr) is on a deprecation path via WS7, but Klaviyo ($45K) and Iterable ($65K) remain active with zero strategic justification. Both overlap completely with AJO email and SMS capabilities that are already in production.',
+    impact:'$1.1M in annual spend — the largest single redundancy in the stack. Klaviyo and Iterable termination is contractually immediate (month-to-month). SFMC savings realize at Jan 2027 decommission.',
+    teams:'Campaign operations, CRM team, marketing engineering',
+    now:'Terminate Klaviyo and Iterable immediately. Both are month-to-month. Raise POs against any final migration data export required.',
+    next:'Accelerate WS7 SFMC migration. The 8 undocumented SFMC programs are the critical blocker for Batch 1. Assign a reverse-engineering sprint to document scoring logic.',
+    later:'Full SFMC decommission Q1 2027. Renegotiate AJO multi-year pricing before SFMC termination to remove the renewal leverage gap.'
+  },
+  {
+    id:'red2',
+    title:'BI / Analytics — Tableau + Adobe Analytics + Domo + CJA',
+    sub:'4 analytics tools with heavy overlap. Consolidate to 2 (Looker + Power BI).',
+    tools:[{n:'Looker',c:'keep'},{n:'Power BI',c:'keep'},{n:'Tableau',c:'evaluate'},{n:'Adobe Analytics',c:'remove'},{n:'Domo',c:'remove'},{n:'CJA',c:'evaluate'}],
+    savings:'$560K',priority:'High',category:'Analytics / BI',
+    detail:'Adobe Analytics ($240K) is being sunset in favor of CJA and GA4. Domo ($110K) has 22% utilization and 15 active users — all use cases replicated in Power BI at zero marginal cost. Tableau ($210K) has high adoption (72 users) but only 31 are active monthly. CJA ($185K) has low adoption — team defaults to manual exports.',
+    impact:'Immediate exits: Adobe Analytics + Domo = $350K. Tableau evaluation could add $210K. CJA contract decision ($185K) due Aug 2025.',
+    teams:'Analytics, data engineering, finance, marketing ops',
+    now:'Exit Domo at Jul 2026 renewal. Migrate dashboards to Power BI. Assign 1 analyst to rebuild Domo views in Power BI before renewal date.',
+    next:'Deprecate Adobe Analytics. Complete CJA vs Mixpanel evaluation before Aug 2025 renewal — do not auto-renew without a decision.',
+    later:'Evaluate Tableau at Mar 2026 renewal. If Looker self-serve adoption is strong, consolidate. If adoption still split, renegotiate Tableau seat count down to active users.'
+  },
+  {
+    id:'red3',
+    title:'CRM — HubSpot + Dynamics 365 overlap with SFDC',
+    sub:'HubSpot and Dynamics used by small teams — full overlap with Salesforce Sales Cloud.',
+    tools:[{n:'Salesforce CRM',c:'keep'},{n:'HubSpot',c:'remove'},{n:'Dynamics 365',c:'evaluate'}],
+    savings:'$155K',priority:'High',category:'CRM / CDP',
+    detail:'HubSpot ($60K/yr) is used by 22 users with 34% utilization — originally adopted as a shadow CRM by a small marketing team. Full overlap with Salesforce Sales Cloud. Dynamics 365 ($95K/yr) is used by one business unit with 28% utilization and no integration with the core martech stack.',
+    impact:'HubSpot exit: $60K/yr. Dynamics 365 consolidation evaluation: $95K/yr potential.',
+    teams:'Sales ops, one B2B business unit, marketing ops',
+    now:'Migrate HubSpot users to Salesforce Sales Cloud. 22 users is a manageable migration — target 4-week cutover.',
+    next:'Evaluate Dynamics 365 for the one business unit using it. Determine if Salesforce can cover the B2B account management workflow or if a lighter CRM is preferable.',
+    later:'Terminate Dynamics 365 at Dec 2026 expiry if no compelling case for retention. Avoid dual-CRM sprawl — enforce Salesforce as the single source of truth.'
+  },
+  {
+    id:'red4',
+    title:'Integration / ETL — Mulesoft + Boomi + ADF',
+    sub:'Three integration platforms with overlapping ETL/API gateway use cases.',
+    tools:[{n:'AWS EventBridge',c:'keep'},{n:'Mulesoft',c:'remove'},{n:'Boomi',c:'remove'},{n:'ADF',c:'evaluate'}],
+    savings:'$375K',priority:'Critical',category:'Integration',
+    detail:'Mulesoft ($280K/yr) is breaching its 400ms SLA at an average 890ms and its contract expires Feb 2026 — the WS1 microservices team is 74% complete building the replacement. Boomi ($95K) expires Dec 2025 with no strategic fit. Azure Data Factory ($95K) handles legacy ETL that Snowflake native connectors and Fivetran can absorb.',
+    impact:'Mulesoft ($280K) + Boomi ($95K) = $375K in confirmed exits. ADF ($95K) is an additional consolidation opportunity.',
+    teams:'Data engineering, platform engineering, integration team',
+    now:'Do not renew Boomi at Dec 2025. Do not renew Mulesoft at Feb 2026. Both decisions are already made — confirm with procurement now.',
+    next:'Complete WS1 API suite for the 3 remaining Mulesoft-dependent integrations. Migrate ADF pipelines to Snowflake native connectors before Jan 2026 ADF expiry.',
+    later:'Decommission Mulesoft post-cutover. Document all API contracts. Set AWS EventBridge as the standard for new event-driven integration patterns.'
+  },
+  {
+    id:'red5',
+    title:'ML platforms — SageMaker + H2O + Databricks',
+    sub:'Three ML platforms with overlapping model training capabilities.',
+    tools:[{n:'Databricks',c:'keep'},{n:'SageMaker',c:'evaluate'},{n:'H2O.ai',c:'remove'}],
+    savings:'$195K',priority:'Medium',category:'AI / ML',
+    detail:'H2O.ai ($85K/yr) has only 4 active users and 18% utilization — being replaced by Databricks AutoML which supports all current H2O use cases. AWS SageMaker ($110K) has 38% utilization and overlapping model serving capabilities with Databricks. Databricks ($180K) is the strategic ML platform at 74% utilization.',
+    impact:'H2O exit: $85K at Dec 2025 expiry. SageMaker consolidation: $110K potential if Databricks model serving covers all use cases.',
+    teams:'Data science, machine learning engineering',
+    now:'Inventory the 4 H2O.ai production models. Confirm each has a Databricks AutoML equivalent. Contract expires Dec 2025 — migration must complete by Nov.',
+    next:'Rebuild H2O models in Databricks staging. Run 4-week accuracy comparison. Evaluate SageMaker model serving vs Databricks Model Serving for the 2 production deployment workloads.',
+    later:'Terminate H2O.ai at Dec 2025. Reach a SageMaker consolidation decision by Q2 2026. Standardize on Databricks as the single ML platform.'
+  },
+  {
+    id:'red6',
+    title:'SIEM — Splunk + Microsoft Sentinel',
+    sub:'Sentinel is included in M365 E5 license. Splunk is $220K/yr.',
+    tools:[{n:'Microsoft Sentinel',c:'keep'},{n:'Splunk',c:'evaluate'}],
+    savings:'$220K',priority:'Medium',category:'Security',
+    detail:'Splunk Enterprise Security ($220K/yr) handles SIEM and security event correlation. Microsoft Sentinel is included in the existing M365 E5 license at no additional cost. An evaluation has been delayed — the Oct 2026 Splunk renewal is the hard deadline. If Sentinel achieves feature parity, the full $220K is recoverable with no capability loss.',
+    impact:'$220K/yr if Sentinel evaluation confirms feature parity. Oct 2026 is the renewal decision point.',
+    teams:'Security operations, IT, CISO office',
+    now:'Formally kick off Sentinel evaluation. Assign a security engineer 2 weeks to benchmark Sentinel against current Splunk use cases (SIEM queries, alert rules, SOAR workflows).',
+    next:'Run Sentinel in parallel with Splunk for 60 days. Evaluate: alert quality, SOAR capability, log ingestion volume, analyst workflow impact.',
+    later:'If Sentinel passes: plan migration and terminate Splunk at Oct 2026 renewal. If not: renegotiate Splunk multi-year pricing to avoid 15% list price increase.'
+  },
+  {
+    id:'red7',
+    title:'Session replay — FullStory + Hotjar',
+    sub:'Partial overlap in heatmaps and session replay capabilities.',
+    tools:[{n:'FullStory',c:'keep'},{n:'Hotjar',c:'evaluate'}],
+    savings:'$18K',priority:'Low',category:'CRM / CDP',
+    detail:'FullStory ($88K/yr) provides behavioral session replay and feeds into AEP for journey analytics. Hotjar ($18K/yr) provides heatmaps and session recording used primarily by the UX team. Hotjar has 64% utilization but its core use cases (heatmaps, user surveys) overlap with FullStory, which has native heatmap capabilities.',
+    impact:'$18K/yr if Hotjar is consolidated into FullStory. Low financial impact but removes tool sprawl.',
+    teams:'UX research, product, digital marketing',
+    now:'Audit whether the UX team\'s Hotjar workflows (specifically user surveys and heatmaps) are replicated in FullStory. Survey the 24 active Hotjar users.',
+    next:'If FullStory covers the use cases: transition team before Hotjar renewal in Jul 2026. If distinct value exists (surveys especially), retain Hotjar.',
+    later:'Remove Hotjar from the approved tool list if consolidated. Add FullStory survey capability to the UX team workflow.'
+  },
+  {
+    id:'red8',
+    title:'Video hosting — Wistia + Brightcove',
+    sub:'Two video platforms with overlapping hosting and analytics use cases.',
+    tools:[{n:'Wistia',c:'keep'},{n:'Brightcove',c:'evaluate'}],
+    savings:'$65K',priority:'Low',category:'Content',
+    detail:'Wistia ($42K/yr) provides video hosting and engagement analytics for content campaigns with 55% utilization. Brightcove ($65K/yr) is used for enterprise video CDN and live streaming with only 34% utilization. The live streaming use case is the primary differentiator — if that requirement is minimal, Brightcove is redundant.',
+    impact:'$65K/yr if Brightcove is terminated at Sep 2026 expiry.',
+    teams:'Content marketing, digital, events team',
+    now:'Determine actual live streaming frequency over the past 12 months. If fewer than 4 live streams per year, Brightcove is not justified at $65K.',
+    next:'Evaluate if Wistia\'s live capability or a lightweight alternative (YouTube/Vimeo) covers the live streaming requirement at a fraction of the cost.',
+    later:'Terminate Brightcove at Sep 2026 if live streaming is not a justified use case. Consolidate all video hosting to Wistia.'
+  },
+  {
+    id:'red9',
+    title:'Social listening — Sprinklr + Brandwatch',
+    sub:'Sprinklr includes listening capabilities — Brandwatch is redundant.',
+    tools:[{n:'Sprinklr',c:'keep'},{n:'Brandwatch',c:'remove'}],
+    savings:'$88K',priority:'Medium',category:'Social / Paid',
+    detail:'Sprinklr ($195K/yr) includes social listening as a native module — it is currently not fully enabled. Brandwatch ($88K/yr) was adopted as a standalone listening tool before the Sprinklr listening module was available. The Sprinklr listening module has equivalent brand monitoring, competitive tracking, and sentiment analysis capabilities.',
+    impact:'$88K/yr at Brandwatch renewal (Nov 2026).',
+    teams:'Social media team, brand marketing, PR',
+    now:'Enable the Sprinklr listening module. Run it in parallel with Brandwatch for 30 days to validate data quality and coverage parity.',
+    next:'Train the social team on Sprinklr listening workflows. Migrate saved searches and alert configurations from Brandwatch to Sprinklr.',
+    later:'Terminate Brandwatch at Nov 2026 renewal. The $88K saving partially offsets Sprinklr contract cost.'
+  },
+  {
+    id:'red10',
+    title:'Personalization — Adobe Target + Dynamic Yield evaluation',
+    sub:'Target is being deprecated. Dynamic Yield evaluation risks creating a new redundancy.',
+    tools:[{n:'RT-CDP + AJO',c:'keep'},{n:'Adobe Target',c:'remove'},{n:'Dynamic Yield',c:'evaluate'}],
+    savings:'$95K',priority:'Medium',category:'Personalization',
+    detail:'Adobe Target ($95K/yr) is being deprecated and replaced by AJO personalization and AEM EDS personalization blocks. Dynamic Yield is under evaluation as an AI personalization engine — however, if adopted, it would overlap significantly with RT-CDP and AJO which already provide personalization capabilities in the stack.',
+    impact:'$95K Adobe Target elimination confirmed at Oct 2026 deprecation. Dynamic Yield evaluation ($110K) should only proceed if AJO cannot cover the web personalization use case.',
+    teams:'Digital experience, personalization team, marketing technology',
+    now:'Complete Adobe Target deprecation migration. Personalization rules must be manually rebuilt in AEM EDS blocks — WS8 team has scoped a 4–6 week effort.',
+    next:'Complete the AJO personalization configuration before evaluating Dynamic Yield. Do not adopt a new tool to solve a problem that AJO + EDS can solve.',
+    later:'If AJO + EDS fully covers web personalization: decline Dynamic Yield. If a genuine capability gap remains, evaluate with clear success criteria against AJO roadmap.'
+  },
+  {
+    id:'red11',
+    title:'B2B MAP — Marketo + Pardot',
+    sub:'Both platforms used for B2B demand gen — Pardot is fully redundant.',
+    tools:[{n:'Marketo',c:'keep'},{n:'Pardot',c:'remove'}],
+    savings:'$85K',priority:'Critical',category:'Email / MAP',
+    detail:'Salesforce Pardot (MCAE) ($85K/yr) is a legacy B2B MAP being consolidated into Marketo Engage ($210K/yr). The migration is 80% complete — 20% of programs still pending. The Pardot contract expires Jan 2026. Missing the migration deadline triggers an automatic $85K renewal for a platform already in end-of-life.',
+    impact:'$85K contract avoidance if migration completes before Jan 2026. The migration is already in progress — this is a deadline risk, not a decision risk.',
+    teams:'B2B marketing, demand gen, marketing ops',
+    now:'Identify remaining 20% of Pardot programs in migration backlog. Assign owner. Jan 2026 is 2 months away — this is urgent.',
+    next:'Migrate remaining programs to Marketo in the next 6 weeks. Run parallel sends for 2 weeks to validate before cutting over.',
+    later:'Terminate Pardot at Jan 2026 expiry. Run a 90-day post-migration audit to confirm no performance regression on B2B nurture programs.'
+  },
+  {
+    id:'red12',
+    title:'Project management — Monday.com + Workfront + Jira',
+    sub:'Monday.com used by one team — full overlap with Workfront and Jira.',
+    tools:[{n:'Workfront',c:'keep'},{n:'Jira',c:'keep'},{n:'Monday.com',c:'remove'}],
+    savings:'$48K',priority:'Low',category:'Project Mgmt',
+    detail:'Monday.com ($48K/yr) is used by one 22-person team for project tracking. Workfront covers all marketing project management and Jira covers all engineering project management — Monday.com is an island with no integration to either platform. The team adopted it independently outside the standard tooling governance process.',
+    impact:'$48K/yr at Aug 2026 renewal.',
+    teams:'One product team (22 users)',
+    now:'Meet with the Monday.com team to understand their specific workflow requirements. Determine if Workfront or Jira can accommodate their use case.',
+    next:'Migrate team to Workfront (if marketing-adjacent) or Jira (if engineering-adjacent). Provide 4-week transition support.',
+    later:'Terminate Monday.com at Aug 2026 renewal. Add project management tool selection to the governance policy to prevent shadow IT recurrence.'
+  },
 ];
 
 // Use cases
@@ -1286,11 +1625,17 @@ var AI_RECS = [
 // ──────────────────────────────────────────────
 // NAV
 // ──────────────────────────────────────────────
-var PAGES = ['executive','financial','inventory','usecases','integrations','redundancies','diagrams','ai'];
-var PAGE_TITLES = {executive:'Executive summary',financial:'Financials',inventory:'Tech stack inventory',usecases:'Use cases',integrations:'Integration assessment',redundancies:'Redundancies',diagrams:'Diagram repository',ai:'AI recommendations'};
+var PAGES = ['executive','financial','inventory','usecases','integrations','redundancies','diagrams','ai','competitive'];
+var PAGE_TITLES = {executive:'Executive summary',financial:'Financials',inventory:'Tech stack inventory',usecases:'Use cases',integrations:'Integration assessment',redundancies:'Redundancies',diagrams:'Diagram repository',ai:'AI recommendations',competitive:'Competitive analysis'};
 
 // Persona pages: only these show the persona dropdown
 var PERSONA_PAGES = ['executive','usecases','redundancies','ai'];
+
+function switchAccount(val){
+  var labels = {helix:'Helix Health',optima:'Optima Care Partners',brightway:'Brightway Insurance',summitrx:'SummitRx'};
+  // In a real implementation this would reload data — for demo, just surface the name
+  console.log('Switched to account:', labels[val]);
+}
 
 function goPage(id){
   PAGES.forEach(function(p){
@@ -1303,9 +1648,9 @@ function goPage(id){
   if(pg) pg.classList.add('active');
   var nl = document.getElementById('nl-'+id);
   if(nl) nl.classList.add('active');
-  document.getElementById('current-page-title').textContent = PAGE_TITLES[id] || id;
   var main = document.querySelector('.main');
   if(main) main.scrollTop = 0;
+  if(id === 'competitive') renderCompetitive();
 }
 
 // ──────────────────────────────────────────────
@@ -1429,19 +1774,19 @@ function renderExecPersona(val){
     ];
     mktCats.forEach(function(c){
       var sc = c.score>=75?'#4ade80':c.score>=55?'#fbbf24':'#f87171';
-      html += '<div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:13px 14px">' +
-        '<div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.4);margin-bottom:4px">'+c.name+'</div>' +
-        '<div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:4px">'+c.topTool+'</div>' +
-        '<div style="font-size:11px;color:rgba(255,255,255,.5);margin-bottom:7px">'+c.tools+' tools</div>' +
+      html += '<div style="background:#F5F6FA;border:1px solid #E2E6EF;border-radius:8px;padding:13px 14px">' +
+        '<div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#9CA3AF;margin-bottom:4px">'+c.name+'</div>' +
+        '<div style="font-size:13px;font-weight:700;color:#111827;margin-bottom:4px">'+c.topTool+'</div>' +
+        '<div style="font-size:11px;color:#6B7280;margin-bottom:7px">'+c.tools+' tools</div>' +
         '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:5px">' +
-          '<span style="font-size:10px;color:rgba(255,255,255,.4)">Usage</span>' +
+          '<span style="font-size:10px;color:#9CA3AF">Usage</span>' +
           '<span style="font-size:12px;font-weight:700;color:'+sc+'">'+c.score+'%</span>' +
         '</div>' +
-        '<div style="height:3px;background:rgba(255,255,255,.08);border-radius:2px;margin-bottom:7px">' +
+        '<div style="height:3px;background:#EAECF0;border-radius:2px;margin-bottom:7px">' +
           '<div style="height:100%;width:'+c.score+'%;background:'+sc+';border-radius:2px"></div>' +
         '</div>' +
-        '<div style="font-size:10px;font-weight:600;color:rgba(255,255,255,.4)">ROI: '+c.roi+'</div>' +
-        '<div style="font-size:10px;color:rgba(255,255,255,.35);margin-top:2px">'+c.status+'</div>' +
+        '<div style="font-size:10px;font-weight:600;color:#9CA3AF">ROI: '+c.roi+'</div>' +
+        '<div style="font-size:10px;color:#9CA3AF;margin-top:2px">'+c.status+'</div>' +
       '</div>';
     });
     html += '</div></div>';
@@ -1460,8 +1805,8 @@ function renderExecPersona(val){
             '<span class="sval">'+s.val+'</span><span class="slbl">/100</span>' +
           '</div>' +
           '<div>' +
-            '<div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:3px">'+s.label+'</div>' +
-            '<div style="font-size:12px;color:rgba(255,255,255,.5);line-height:1.5">'+s.desc+'</div>' +
+            '<div style="font-size:14px;font-weight:700;color:#111827;margin-bottom:3px">'+s.label+'</div>' +
+            '<div style="font-size:12px;color:#6B7280;line-height:1.5">'+s.desc+'</div>' +
           '</div>' +
         '</div>' +
         '<div style="margin-top:12px"><div class="pbar"><div class="pbar-fill gold" style="width:'+s.val+'%;background:'+s.color+'"></div></div></div>' +
@@ -1484,7 +1829,7 @@ function renderExecPersona(val){
           '<div class="score-ring gold" style="border-color:'+s.c+';color:'+s.c+';width:52px;height:52px">' +
             '<span class="sval" style="font-size:16px">'+s.val+'</span><span class="slbl">/100</span>' +
           '</div>' +
-          '<div style="font-size:11px;color:rgba(255,255,255,.45);line-height:1.4;flex:1">'+s.desc+'</div>' +
+          '<div style="font-size:11px;color:#6B7280;line-height:1.4;flex:1">'+s.desc+'</div>' +
         '</div>' +
         '<div class="pbar"><div class="pbar-fill gold" style="width:'+s.val+'%;background:'+s.c+'"></div></div>' +
       '</div>';
@@ -1495,9 +1840,9 @@ function renderExecPersona(val){
     html += '<div style="margin-bottom:18px">' +
       '<div class="section-head" style="margin-bottom:10px"><h2>Integration and SLA findings</h2></div>' +
       '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>Integration</th><th>Current latency</th><th>SLA target</th><th>Status</th><th>Action</th></tr></thead><tbody>' +
-      '<tr><td style="font-weight:600;color:#fff">Mulesoft → SHC</td><td style="font-family:\'DM Mono\',monospace;color:#f87171">890ms</td><td style="font-family:\'DM Mono\',monospace;color:rgba(255,255,255,.5)">400ms</td><td><span class="heat l">Critical</span></td><td style="font-size:11px;color:rgba(255,255,255,.6)">Replace with WS1 microservices (74% complete)</td></tr>' +
-      '<tr><td style="font-weight:600;color:#fff">SHC → AEP</td><td style="font-family:\'DM Mono\',monospace;color:#fbbf24">320ms</td><td style="font-family:\'DM Mono\',monospace;color:rgba(255,255,255,.5)">200ms</td><td><span class="heat m">Warning</span></td><td style="font-size:11px;color:rgba(255,255,255,.6)">Investigate Mulesoft bottleneck first</td></tr>' +
-      '<tr><td style="font-weight:600;color:#fff">Azure Data Factory → Snowflake</td><td style="font-family:\'DM Mono\',monospace;color:#fbbf24">90min</td><td style="font-family:\'DM Mono\',monospace;color:rgba(255,255,255,.5)">30min</td><td><span class="heat m">Warning</span></td><td style="font-size:11px;color:rgba(255,255,255,.6)">Migrate to Snowflake native connectors</td></tr>' +
+      '<tr><td style="font-weight:600;color:#fff">Mulesoft → SHC</td><td style="font-family:\'DM Mono\',monospace;color:#f87171">890ms</td><td style="font-family:\'DM Mono\',monospace;color:#6B7280">400ms</td><td><span class="heat l">Critical</span></td><td style="font-size:11px;color:#4B5563">Replace with WS1 microservices (74% complete)</td></tr>' +
+      '<tr><td style="font-weight:600;color:#fff">SHC → AEP</td><td style="font-family:\'DM Mono\',monospace;color:#fbbf24">320ms</td><td style="font-family:\'DM Mono\',monospace;color:#6B7280">200ms</td><td><span class="heat m">Warning</span></td><td style="font-size:11px;color:#4B5563">Investigate Mulesoft bottleneck first</td></tr>' +
+      '<tr><td style="font-weight:600;color:#fff">Azure Data Factory → Snowflake</td><td style="font-family:\'DM Mono\',monospace;color:#fbbf24">90min</td><td style="font-family:\'DM Mono\',monospace;color:#6B7280">30min</td><td><span class="heat m">Warning</span></td><td style="font-size:11px;color:#4B5563">Migrate to Snowflake native connectors</td></tr>' +
       '</tbody></table></div></div>';
 
     // Security + infra findings
@@ -1529,20 +1874,20 @@ function renderExecPersona(val){
         '<div style="display:flex;align-items:center;gap:20px;margin:10px 0">' +
           '<div class="score-ring red" style="width:80px;height:80px"><span class="sval" style="font-size:24px">58</span><span class="slbl">/100</span></div>' +
           '<div>' +
-            '<div style="font-size:16px;font-weight:700;color:#fff;margin-bottom:4px">Poor — significant waste and under-utilization</div>' +
-            '<div style="font-size:12px;color:rgba(255,255,255,.5);line-height:1.6">$8.4M spend with 61% avg utilization means 39% of investment is not generating return. $1.2M is immediately recoverable. Target: 80% utilization, financial health score 80+.</div>' +
+            '<div style="font-size:16px;font-weight:700;color:#111827;margin-bottom:4px">Poor — significant waste and under-utilization</div>' +
+            '<div style="font-size:12px;color:#6B7280;line-height:1.6">$8.4M spend with 61% avg utilization means 39% of investment is not generating return. $1.2M is immediately recoverable. Target: 80% utilization, financial health score 80+.</div>' +
           '</div>' +
         '</div>' +
-        '<div style="height:6px;background:rgba(255,255,255,.08);border-radius:3px;margin-top:8px"><div style="height:100%;width:58%;background:#f87171;border-radius:3px"></div></div>' +
+        '<div style="height:6px;background:#EAECF0;border-radius:3px;margin-top:8px"><div style="height:100%;width:58%;background:#f87171;border-radius:3px"></div></div>' +
       '</div>' +
       '<div class="card">' +
         '<div class="card-title"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>Top savings opportunities</div>' +
         '<div style="display:flex;flex-direction:column;gap:0">' +
         [['SFMC termination (Jan 2027)','$920K','Don\'t renew'],['AEP segment activation','$0 additional','+$1.2M campaign ROI'],['Redundancy consolidation (12 groups)','$1.2M','Immediate action'],['Workfront renewal (expired)','$62K/yr premium','Renew now'],['Splunk → Sentinel evaluation','$220K','Oct 2026 deadline'],['AWS rightsizing','$190K','Datadog data available']].map(function(r){
-          return '<div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05)">' +
+          return '<div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid #E2E6EF">' +
             '<div>' +
               '<div style="font-size:12px;font-weight:600;color:#fff">'+r[0]+'</div>' +
-              '<div style="font-size:10px;color:rgba(255,255,255,.4)">'+r[2]+'</div>' +
+              '<div style="font-size:10px;color:#9CA3AF">'+r[2]+'</div>' +
             '</div>' +
             '<div style="font-size:13px;font-weight:700;color:#4ade80;text-align:right">'+r[1]+'</div>' +
           '</div>';
@@ -1572,7 +1917,7 @@ function renderExecPersona(val){
           '<td style="font-family:\'DM Mono\',monospace;color:#fbbf24">'+r[1]+'</td>' +
           '<td style="font-family:\'DM Mono\',monospace">'+r[2]+'</td>' +
           '<td><span class="badge '+rc+'" style="font-size:10px;white-space:normal">'+r[3]+'</span></td>' +
-          '<td style="font-size:11px;color:rgba(255,255,255,.45)">'+r[4]+'</td></tr>';
+          '<td style="font-size:11px;color:#6B7280">'+r[4]+'</td></tr>';
       }).join('') +
       '</tbody></table></div></div>';
   }
@@ -1580,25 +1925,146 @@ function renderExecPersona(val){
   contentEl.innerHTML = html;
 }
 
+var selectedRedId = null;
+
 function renderRedundanciesPersona(val){
   var p = PERSONA_REDUNDANCIES[val];
   if(!p) return;
   var titleEl = document.getElementById('redundancies-persona-title');
   if(titleEl) titleEl.textContent = p.title;
-  var listEl = document.getElementById('redundancy-list');
-  if(!listEl) return;
-  var data = p.filter ? REDUNDANCIES.filter(function(r){return p.filter.indexOf(r.title)>-1;}) : REDUNDANCIES;
-  var html = '';
+  var data = p.filter ? REDUNDANCIES.filter(function(r){return p.filter.indexOf(r.id)>-1;}) : REDUNDANCIES;
+  renderRedundancyList(data);
+}
+
+function renderRedundancyList(data){
+  var el = document.getElementById('redundancy-list');
+  if(!el) return;
+
+  var priorityColor = {Critical:'#991b1b',High:'#854d0e',Medium:'#1e40af',Low:'#374151'};
+  var priorityBg    = {Critical:'#fee2e2',High:'#fef9c3',Medium:'#dbeafe',Low:'#f3f4f6'};
+
+  var html = '<div style="display:flex;flex-direction:column;gap:6px">';
   data.forEach(function(r){
-    html += '<div class="red-group">' +
-      '<div class="red-group-title">'+r.title+'</div>' +
-      '<div class="red-group-sub">'+r.sub+'</div>' +
-      '<div class="red-tools">'+r.tools.map(function(t){return '<span class="red-tool '+t.c+'">'+t.n+'</span>';}).join('')+'</div>' +
-      '<div style="font-size:12px;color:rgba(255,255,255,.55);line-height:1.6;margin-bottom:8px">'+r.action+'</div>' +
-      '<div class="red-savings">Recoverable spend: <strong>'+r.savings+'</strong></div>' +
+    var toolCount = r.tools.length;
+    var removeCount = r.tools.filter(function(t){return t.c==='remove';}).length;
+    html += '<div id="red-list-item-'+r.id+'" onclick="selectRedundancy(\''+r.id+'\')" ' +
+      'style="background:var(--lm-surface);border:1px solid var(--lm-border);border-radius:8px;padding:12px 14px;cursor:pointer;transition:all .12s" ' +
+      'onmouseover="this.style.borderColor=\'var(--mk-sky)\';this.style.boxShadow=\'0 2px 8px rgba(3,145,242,.1)\'" ' +
+      'onmouseout="if(selectedRedId!==\''+r.id+'\'){this.style.borderColor=\'var(--lm-border)\';this.style.boxShadow=\'none\'}">' +
+      '<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:5px">' +
+        '<span style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--lm-text4)">'+r.category+'</span>' +
+        '<span style="font-size:9px;font-weight:700;padding:2px 7px;border-radius:20px;flex-shrink:0;background:'+priorityBg[r.priority]+';color:'+priorityColor[r.priority]+'">'+r.priority+'</span>' +
+      '</div>' +
+      '<div style="font-size:12px;font-weight:600;color:var(--mk-blue);line-height:1.35;margin-bottom:6px">'+r.title+'</div>' +
+      '<div style="display:flex;align-items:center;justify-content:space-between">' +
+        '<span style="font-size:11px;font-weight:700;color:#991b1b">'+r.savings+' recoverable</span>' +
+        '<span style="font-size:10px;color:var(--lm-text4)">'+toolCount+' tools · '+removeCount+' exit</span>' +
+      '</div>' +
     '</div>';
   });
-  listEl.innerHTML = html;
+  html += '</div>';
+  el.innerHTML = html;
+
+  // Reset detail
+  var empty = document.getElementById('red-detail-empty');
+  var panel = document.getElementById('red-detail-panel');
+  if(empty) empty.style.display = '';
+  if(panel) panel.style.display = 'none';
+  selectedRedId = null;
+}
+
+function selectRedundancy(id){
+  // Highlight selected
+  document.querySelectorAll('[id^="red-list-item-"]').forEach(function(el){
+    el.style.borderColor = 'var(--lm-border)';
+    el.style.boxShadow = 'none';
+    el.style.background = 'var(--lm-surface)';
+  });
+  var listItem = document.getElementById('red-list-item-'+id);
+  if(listItem){
+    listItem.style.borderColor = 'var(--mk-sky)';
+    listItem.style.boxShadow = '0 2px 8px rgba(3,145,242,.15)';
+    listItem.style.background = '#EFF6FF';
+  }
+
+  var r = REDUNDANCIES.find(function(x){return x.id===id;});
+  if(!r) return;
+  selectedRedId = id;
+
+  var priorityColor = {Critical:'#991b1b',High:'#854d0e',Medium:'#1e40af',Low:'#374151'};
+  var priorityBg    = {Critical:'#fee2e2',High:'#fef9c3',Medium:'#dbeafe',Low:'#f3f4f6'};
+
+  var toolLabels = {keep:'Keep',remove:'Exit',evaluate:'Evaluate'};
+  var toolBg     = {keep:'#dcfce7',remove:'#fee2e2',evaluate:'#fef9c3'};
+  var toolColor  = {keep:'#166534',remove:'#991b1b',evaluate:'#854d0e'};
+  var toolBorder = {keep:'#86efac',remove:'#fca5a5',evaluate:'#fde68a'};
+
+  var html =
+    '<div style="background:#fff;border:1px solid var(--lm-border);border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(4,14,75,.06)">' +
+    // Header — white, dark text
+    '<div style="background:#fff;padding:20px 22px;border-bottom:1px solid var(--lm-border)">' +
+      '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;gap:10px">' +
+        '<span style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding:3px 9px;border-radius:20px;background:#ede9fe;color:#5b21b6;border:1px solid #ddd6fe">'+r.category+'</span>' +
+        '<span style="font-size:9px;font-weight:700;padding:3px 10px;border-radius:20px;background:'+priorityBg[r.priority]+';color:'+priorityColor[r.priority]+';border:1px solid '+priorityColor[r.priority]+'40">'+r.priority+'</span>' +
+      '</div>' +
+      '<div style="font-size:17px;font-weight:700;color:var(--mk-blue);line-height:1.3;margin-bottom:5px">'+r.title+'</div>' +
+      '<div style="font-size:12px;color:var(--lm-text3);margin-bottom:12px">'+r.sub+'</div>' +
+      '<div style="display:inline-flex;align-items:center;gap:6px;padding:7px 12px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:6px">' +
+        '<svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke:#166534;fill:none;flex-shrink:0"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>' +
+        '<span style="font-size:13px;font-weight:700;color:#166534">'+r.savings+' recoverable annually</span>' +
+      '</div>' +
+    '</div>' +
+    '<div style="padding:20px">' +
+      // Tool pills
+      '<div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--lm-text4);margin-bottom:10px">Tools in this group</div>' +
+      '<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px">' +
+        r.tools.map(function(t){
+          return '<div style="display:flex;flex-direction:column;align-items:center;gap:4px">' +
+            '<span style="font-size:11px;font-weight:600;padding:5px 12px;border-radius:6px;border:1px solid '+toolBorder[t.c]+';background:'+toolBg[t.c]+';color:'+toolColor[t.c]+'">'+t.n+'</span>' +
+            '<span style="font-size:9px;font-weight:700;color:'+toolColor[t.c]+'">'+toolLabels[t.c]+'</span>' +
+          '</div>';
+        }).join('') +
+      '</div>' +
+      // Detail and impact
+      '<div style="font-size:13px;color:var(--lm-text2);line-height:1.7;margin-bottom:14px">'+r.detail+'</div>' +
+      '<div style="background:#FFF5F3;border:1px solid #FCC9C0;border-radius:7px;padding:11px 14px;margin-bottom:18px;font-size:12px;color:#7f1d1d;line-height:1.55">' +
+        '<strong>Financial impact:</strong> '+r.impact +
+      '</div>' +
+      // Affected teams
+      '<div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--lm-text4);margin-bottom:6px">Affected teams</div>' +
+      '<div style="font-size:12px;color:var(--lm-text3);margin-bottom:18px">'+r.teams+'</div>' +
+      // Now / Next / Later
+      '<div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--lm-text4);margin-bottom:12px">Action plan</div>' +
+      '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">' +
+        '<div style="background:#EFF6FF;border:1px solid #BFDBFE;border-radius:8px;padding:13px 14px">' +
+          '<div style="display:flex;align-items:center;gap:6px;margin-bottom:8px">' +
+            '<div style="width:22px;height:22px;border-radius:50%;background:var(--mk-red);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="font-size:9px;font-weight:700;color:#fff">1</span></div>' +
+            '<span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--mk-sky)">Now</span>' +
+          '</div>' +
+          '<div style="font-size:12px;color:var(--lm-text2);line-height:1.55">'+r.now+'</div>' +
+        '</div>' +
+        '<div style="background:#FFFBEB;border:1px solid #FDE68A;border-radius:8px;padding:13px 14px">' +
+          '<div style="display:flex;align-items:center;gap:6px;margin-bottom:8px">' +
+            '<div style="width:22px;height:22px;border-radius:50%;background:#f59e0b;display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="font-size:9px;font-weight:700;color:#fff">2</span></div>' +
+            '<span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#92400e">Next</span>' +
+          '</div>' +
+          '<div style="font-size:12px;color:var(--lm-text2);line-height:1.55">'+r.next+'</div>' +
+        '</div>' +
+        '<div style="background:#F0FDF4;border:1px solid #BBF7D0;border-radius:8px;padding:13px 14px">' +
+          '<div style="display:flex;align-items:center;gap:6px;margin-bottom:8px">' +
+            '<div style="width:22px;height:22px;border-radius:50%;background:#22c55e;display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="font-size:9px;font-weight:700;color:#fff">3</span></div>' +
+            '<span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#166534">Later</span>' +
+          '</div>' +
+          '<div style="font-size:12px;color:var(--lm-text2);line-height:1.55">'+r.later+'</div>' +
+        '</div>' +
+      '</div>' +
+    '</div>' +
+  '</div>';
+
+  var empty = document.getElementById('red-detail-empty');
+  var panel = document.getElementById('red-detail-panel');
+  if(empty) empty.style.display = 'none';
+  if(panel){ panel.style.display = ''; panel.innerHTML = html; }
 }
 
 // ──────────────────────────────────────────────
@@ -1674,17 +2140,348 @@ function renderFinanceTable(){
   var html = '<table class="tbl"><thead><tr><th>Tool</th><th>Category</th><th>Annual cost</th><th>Status</th><th>Utilization</th><th>Cost / user</th></tr></thead><tbody>';
   sorted.forEach(function(t){
     var cpu = t.users>0?'$'+Math.round(t.cost*1000/t.users):'—';
-    html += '<tr onclick="openToolModal(\''+t.id+'\')"><td style="font-weight:600;color:#fff">'+t.name+'</td><td><span class="badge cat">'+t.cat+'</span></td><td style="font-family:\'DM Mono\',monospace;font-weight:700">$'+t.cost+'K</td><td><span class="badge '+(t.status==='Active'?'active':t.status==='Deprecated'?'deprecated':t.status==='Evaluating'?'review':'implementing')+'">'+t.status+'</span></td><td>'+t.util+'%</td><td style="font-family:\'DM Mono\',monospace;color:rgba(255,255,255,.5)">'+cpu+'</td></tr>';
+    html += '<tr onclick="openToolModal(\''+t.id+'\')"><td style="font-weight:600;color:#fff">'+t.name+'</td><td><span class="badge cat">'+t.cat+'</span></td><td style="font-family:\'DM Mono\',monospace;font-weight:700">$'+t.cost+'K</td><td><span class="badge '+(t.status==='Active'?'active':t.status==='Deprecated'?'deprecated':t.status==='Evaluating'?'review':'implementing')+'">'+t.status+'</span></td><td>'+t.util+'%</td><td style="font-family:\'DM Mono\',monospace;color:#6B7280">'+cpu+'</td></tr>';
   });
   html += '</tbody></table>';
   el.innerHTML = html;
 }
 
 // ──────────────────────────────────────────────
-// INVENTORY
+// STACK VIEW
 // ──────────────────────────────────────────────
+
+// Multi-select filter state — all on by default
+var stackFilters = {
+  status: {Active:true, Evaluating:true, Implementing:true, Deprecated:true},
+  health: {h:true, m:true, l:true}
+};
+
+// Inactive style per filter type (dimmed/grayed out)
+var svInactiveStyle = 'background:var(--lm-surface2);color:var(--lm-text4);border-color:var(--lm-border);opacity:0.5';
+var svActiveStyles = {
+  status: {
+    Active:   'background:#dcfce7;color:#166534;border-color:#86efac;opacity:1',
+    Evaluating: 'background:#fef9c3;color:#854d0e;border-color:#fde68a;opacity:1',
+    Implementing:'background:#dbeafe;color:#1e40af;border-color:#bfdbfe;opacity:1',
+    Deprecated: 'background:#fee2e2;color:#991b1b;border-color:#fca5a5;opacity:1'
+  },
+  health: {
+    h: 'background:#dcfce7;color:#166534;border-color:#86efac;opacity:1',
+    m: 'background:#fef9c3;color:#854d0e;border-color:#fde68a;opacity:1',
+    l: 'background:#fee2e2;color:#991b1b;border-color:#fca5a5;opacity:1'
+  }
+};
+
+function toggleStackFilter(type, val, btn){
+  stackFilters[type][val] = !stackFilters[type][val];
+  // Update button appearance
+  if(stackFilters[type][val]){
+    btn.classList.add('active');
+    var activeStyle = svActiveStyles[type][val] || '';
+    activeStyle.split(';').forEach(function(s){
+      var parts = s.split(':');
+      if(parts.length===2) btn.style[parts[0].trim().replace(/-([a-z])/g,function(g){return g[1].toUpperCase();})] = parts[1].trim();
+    });
+  } else {
+    btn.classList.remove('active');
+    // Apply inactive style
+    btn.style.background = 'var(--lm-surface2)';
+    btn.style.color = 'var(--lm-text4)';
+    btn.style.borderColor = 'var(--lm-border)';
+    btn.style.opacity = '0.5';
+  }
+  renderStackView();
+}
+
+function clearStackFilters(){
+  // Reset all to active
+  ['Active','Evaluating','Implementing','Deprecated'].forEach(function(v){ stackFilters.status[v] = true; });
+  ['h','m','l'].forEach(function(v){ stackFilters.health[v] = true; });
+  // Re-style all buttons
+  document.querySelectorAll('.sv-filter-btn').forEach(function(btn){
+    btn.classList.add('active');
+    var type = btn.classList.contains('sv-status') ? 'status' : 'health';
+    var val = btn.getAttribute('data-val');
+    var activeStyle = svActiveStyles[type][val] || '';
+    activeStyle.split(';').forEach(function(s){
+      var parts = s.split(':');
+      if(parts.length===2) btn.style[parts[0].trim().replace(/-([a-z])/g,function(g){return g[1].toUpperCase();})] = parts[1].trim();
+    });
+  });
+  renderStackView();
+}
+
+var STACK_LAYERS = [
+  {
+    id:'experience',
+    label:'Experience',
+    sub:'Creating and optimizing customer interactions',
+    color:'#040E4B',
+    accent:'#0391F2',
+    cats:['SEO / Web','Social / Paid'],
+    extra:['aem','aem-eds','cloudflare','optimizely','adobe-target','sprinklr','brandwatch','facebook-ads','google-ads','linkedin-ads','semrush','screaming-frog','hotjar','fullstory','qualtrics','wistia','brightcove']
+  },
+  {
+    id:'content',
+    label:'Content & Commerce',
+    sub:'Creation, management, and governance of content and digital assets',
+    color:'#041677',
+    accent:'#E8472A',
+    cats:['Content'],
+    extra:['genstudio','firefly','bynder','contentful']
+  },
+  {
+    id:'orchestration',
+    label:'Engagement Orchestration',
+    sub:'Audience activation, journey execution, and campaign automation',
+    color:'#031FA4',
+    accent:'#0391F2',
+    cats:['Email / MAP','CRM / CDP','Personalization'],
+    extra:['ajo','sfmc','marketo','pardot','klaviyo','klaviyo2','braze','iterable','aep','rtcdp','shc','salesforce','hubspot','dynamics','segment']
+  },
+  {
+    id:'analytics',
+    label:'Analytics Layer',
+    sub:'Performance measurement, attribution, and business intelligence',
+    color:'#0328D1',
+    accent:'#22c55e',
+    cats:['Analytics / BI'],
+    extra:['cja','tableau','looker','powerbi','ga4','adobe-analytics','mixpanel','amplitude','domo']
+  },
+  {
+    id:'ai',
+    label:'AI Layer',
+    sub:'Machine learning, generative AI, and predictive intelligence',
+    color:'#040E4B',
+    accent:'#f59e0b',
+    cats:['AI / ML'],
+    extra:['adobe-ai-assist','claude-api','azure-openai','databricks','sagemaker','vertex-ai','h2o']
+  },
+  {
+    id:'data-storage',
+    label:'Data Storage',
+    sub:'Warehousing, lakehouse, and long-term data persistence',
+    color:'#031FA4',
+    accent:'#0391F2',
+    cats:[],
+    extra:['snowflake','aws','azure','kafka','spark','great-expectations','datahub','collibra']
+  },
+  {
+    id:'data-infra',
+    label:'Data Infrastructure',
+    sub:'Pipelines, ETL/ELT, integration fabric, observability, and security',
+    color:'#041677',
+    accent:'#E8472A',
+    cats:['Integration','Governance','Security'],
+    extra:['adf','mulesoft','fivetran','dbt','airflow','terraform','github','datadog','adobe-io','boomi','eventbridge','apigee','zapier','collibra-gov','okta','varonis','archer','crowdstrike','splunk','sentinel','qualys','veracode','prisma','1password']
+  },
+  {
+    id:'team-mgmt',
+    label:'Team Management',
+    sub:'Workflow, project management, collaboration, and business operations',
+    color:'#0328D1',
+    accent:'#22c55e',
+    cats:['Project Mgmt','Finance / ERP'],
+    extra:['workfront','wf-fusion','jira','monday','slack','sap','workday','coupa']
+  }
+];
+
+var currentInvView = 'table';
+
+function setInvView(view){
+  currentInvView = view;
+  var tableView = document.getElementById('inv-table-view');
+  var stackView = document.getElementById('inv-stack-view');
+  var btnTable = document.getElementById('inv-toggle-table');
+  var btnStack = document.getElementById('inv-toggle-stack');
+  if(view === 'stack'){
+    if(tableView) tableView.style.display = 'none';
+    if(stackView) stackView.style.display = '';
+    if(btnTable){ btnTable.style.background = 'transparent'; btnTable.style.color = 'var(--lm-text3)'; }
+    if(btnStack){ btnStack.style.background = 'var(--mk-blue)'; btnStack.style.color = '#fff'; }
+    renderStackView();
+  } else {
+    if(tableView) tableView.style.display = '';
+    if(stackView) stackView.style.display = 'none';
+    if(btnTable){ btnTable.style.background = 'var(--mk-blue)'; btnTable.style.color = '#fff'; }
+    if(btnStack){ btnStack.style.background = 'transparent'; btnStack.style.color = 'var(--lm-text3)'; }
+  }
+}
+
+function renderStackView(){
+  var el = document.getElementById('inv-stack-grid');
+  if(!el) return;
+
+  var statusClass = {Active:'sc-active',Evaluating:'sc-evaluating',Implementing:'sc-implementing',Deprecated:'sc-deprecated'};
+  var statusColor = {Active:'#166534',Evaluating:'#854d0e',Implementing:'#1e40af',Deprecated:'#991b1b'};
+  var statusBg    = {Active:'#dcfce7',Evaluating:'#fef9c3',Implementing:'#dbeafe',Deprecated:'#fee2e2'};
+  var healthColor = {h:'#22c55e',m:'#f59e0b',l:'#E8472A'};
+  var utilColor   = function(u){ return u>=75?'#22c55e':u>=50?'#f59e0b':'#E8472A'; };
+
+  // Build the filter predicate
+  function toolPasses(t){
+    if(!stackFilters.status[t.status]) return false;
+    if(!stackFilters.health[t.health]) return false;
+    return true;
+  }
+
+  var totalVisible = 0;
+  var html = '';
+
+  STACK_LAYERS.forEach(function(layer){
+    // Collect and deduplicate tools for this layer
+    var seen = {};
+    var layerTools = TOOLS.filter(function(t){
+      if(seen[t.id]) return false;
+      seen[t.id] = true;
+      return layer.cats.indexOf(t.cat) > -1 || layer.extra.indexOf(t.id) > -1;
+    });
+
+    // Apply status + health filters
+    var filteredTools = layerTools.filter(toolPasses);
+
+    // Still render the layer header even if filtered — but skip entirely if nothing
+    if(filteredTools.length === 0) return;
+
+    totalVisible += filteredTools.length;
+
+    var avgUtil = Math.round(filteredTools.reduce(function(s,t){return s+t.util;},0)/filteredTools.length);
+    var issues  = filteredTools.filter(function(t){return t.health==='l';}).length;
+    var layerHealth = avgUtil>=75?'#4ade80':avgUtil>=55?'#fbbf24':'#f87171';
+
+    html +=
+      '<div class="stack-layer">' +
+        '<div class="stack-layer-header" style="background:'+layer.color+';border-color:'+layer.color+'">' +
+          '<div>' +
+            '<div style="display:flex;align-items:center;gap:10px;margin-bottom:3px">' +
+              '<div style="width:10px;height:10px;border-radius:50%;background:'+layer.accent+';flex-shrink:0"></div>' +
+              '<div class="stack-layer-title">'+layer.label+'</div>' +
+            '</div>' +
+            '<div class="stack-layer-sub">'+layer.sub+'</div>' +
+          '</div>' +
+          '<div class="stack-layer-meta">' +
+            '<div style="text-align:right">' +
+              '<div style="font-size:18px;font-weight:700;color:'+layerHealth+';line-height:1">'+avgUtil+'%</div>' +
+              '<div style="font-size:9px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.06em">avg util</div>' +
+            '</div>' +
+            '<div style="text-align:right">' +
+              '<div style="font-size:18px;font-weight:700;color:#fff;line-height:1">'+filteredTools.length+'</div>' +
+              '<div style="font-size:9px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.06em">tools</div>' +
+            '</div>' +
+            (issues>0?'<div style="text-align:right"><div style="font-size:18px;font-weight:700;color:#f87171;line-height:1">'+issues+'</div><div style="font-size:9px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.06em">at risk</div></div>':'') +
+          '</div>' +
+        '</div>' +
+        '<div class="stack-layer-body">';
+
+    filteredTools.forEach(function(t){
+      var sc  = statusClass[t.status] || 'sc-evaluating';
+      var uc  = utilColor(t.util);
+      var hc  = healthColor[t.health] || '#9CA3AF';
+      var hlabel = t.health==='h'?'Healthy':t.health==='m'?'Warning':'At risk';
+      html +=
+        '<div class="stack-card '+sc+'" onclick="openToolModal(\''+t.id+'\')">' +
+          '<div class="stack-card-name">'+t.name+'</div>' +
+          '<div class="stack-card-cat">'+t.cat+'</div>' +
+          '<div class="stack-card-metrics">' +
+            '<span class="stack-card-util" style="color:'+uc+'">'+t.util+'%</span>' +
+            '<div style="display:flex;align-items:center;gap:4px">' +
+              '<div class="stack-card-health" style="background:'+hc+'"></div>' +
+              '<span style="font-size:9px;color:var(--lm-text4)">'+hlabel+'</span>' +
+            '</div>' +
+          '</div>' +
+          '<div class="stack-card-bar"><div class="stack-card-bar-fill" style="width:'+t.util+'%;background:'+uc+'"></div></div>' +
+          '<div class="stack-card-status" style="color:'+statusColor[t.status]+';background:'+statusBg[t.status]+';padding:2px 6px;border-radius:3px;display:inline-block">'+t.status+'</div>' +
+        '</div>';
+    });
+
+    html += '</div></div>';
+  });
+
+  el.innerHTML = html || '<div style="padding:32px;text-align:center;color:var(--lm-text4);font-size:13px">No tools match the selected filters.</div>';
+
+  // Update count badge
+  var countEl = document.getElementById('sv-filter-count');
+  if(countEl){
+    var totalTools = TOOLS.length;
+    countEl.textContent = totalVisible === totalTools
+      ? 'Showing all '+totalTools+' tools'
+      : 'Showing '+totalVisible+' of '+totalTools+' tools';
+    countEl.style.color = totalVisible < totalTools ? 'var(--mk-red)' : 'var(--lm-text4)';
+  }
+}
 var currentCatFilter = 'all';
 var currentSearchQ = '';
+
+// ──────────────────────────────────────────────
+// REDUNDANCY MAP — tool id → overlapping tools
+// ──────────────────────────────────────────────
+var REDUNDANCY_MAP = {
+  // CRM / CDP cluster
+  'salesforce':  ['Health Cloud','HubSpot','Dynamics 365'],
+  'shc':         ['Salesforce CRM','HubSpot','Dynamics 365'],
+  'hubspot':     ['Salesforce CRM','Health Cloud','Dynamics 365'],
+  'dynamics':    ['Salesforce CRM','Health Cloud','HubSpot'],
+  'segment':     ['AEP streaming'],
+  // Email / MAP cluster
+  'sfmc':        ['AJO','Klaviyo','Iterable'],
+  'ajo':         ['SFMC','Klaviyo','Iterable'],
+  'klaviyo':     ['AJO','SFMC','Iterable'],
+  'klaviyo2':    ['AJO','SFMC','Iterable'],
+  'iterable':    ['AJO','SFMC','Klaviyo'],
+  'marketo':     ['AJO (B2B)'],
+  'pardot':      ['Marketo'],
+  'braze':       ['AJO'],
+  // Analytics / BI cluster
+  'tableau':     ['Looker','Power BI'],
+  'looker':      ['Tableau','Power BI'],
+  'powerbi':     ['Tableau','Looker'],
+  'adobe-analytics': ['CJA','GA4'],
+  'cja':         ['Adobe Analytics','Mixpanel'],
+  'domo':        ['Power BI','Looker','Tableau'],
+  'mixpanel':    ['CJA','Amplitude'],
+  'amplitude':   ['CJA','Mixpanel'],
+  // AI / ML cluster
+  'azure-openai': ['Claude API'],
+  'claude-api':  ['Azure OpenAI'],
+  'sagemaker':   ['Databricks'],
+  'h2o':         ['Databricks AutoML'],
+  'vertex-ai':   ['Claude API','Azure OpenAI'],
+  // Content cluster
+  'contentful':  ['AEM EDS'],
+  'aem-eds':     ['Contentful'],
+  'wistia':      ['Brightcove'],
+  'brightcove':  ['Wistia'],
+  // Personalization cluster
+  'adobe-target': ['AJO personalization','RT-CDP'],
+  'rtcdp':       ['Adobe Target','Dynamic Yield'],
+  'personio':    ['RT-CDP','AJO'],
+  // Integration cluster
+  'mulesoft':    ['AWS EventBridge','Boomi'],
+  'boomi':       ['Mulesoft','AWS EventBridge'],
+  'adf':         ['Fivetran','Snowflake native'],
+  'apigee':      ['AWS API Gateway'],
+  'zapier':      ['Workfront Fusion'],
+  'wf-fusion':   ['Zapier'],
+  // Social listening
+  'brandwatch':  ['Sprinklr listening'],
+  'sprinklr':    ['Brandwatch (listening)'],
+  // Session replay
+  'hotjar':      ['FullStory'],
+  'fullstory':   ['Hotjar'],
+  // SIEM
+  'splunk':      ['Microsoft Sentinel'],
+  'sentinel':    ['Splunk'],
+  // Project mgmt
+  'monday':      ['Workfront','Jira'],
+  // Data governance
+  'datahub':     ['Collibra'],
+  'collibra':    ['DataHub'],
+  // Cloud infra
+  'aws':         ['Azure (dual-cloud)'],
+  'azure':       ['AWS (dual-cloud)'],
+  // CSPM
+  'prisma':      ['Qualys (cloud scanning)'],
+};
 
 function renderInventory(data){
   var tbody = document.getElementById('inv-body');
@@ -1696,15 +2493,25 @@ function renderInventory(data){
     var hlbl = t.health==='h'?'Healthy':t.health==='m'?'Warning':'At risk';
     var persona = document.body.className;
     var col4 = persona==='it' ? (t.contract||'—') : ('$'+t.cost+'K');
+
+    // Redundancy cell
+    var redItems = REDUNDANCY_MAP[t.id] || [];
+    var redCell = redItems.length > 0
+      ? redItems.map(function(r){
+          return '<span style="display:inline-block;font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;background:#FEE2E2;color:#991b1b;border:1px solid #FCA5A5;margin:1px 2px;white-space:nowrap">'+r+'</span>';
+        }).join('')
+      : '<span style="font-size:11px;color:#9CA3AF">—</span>';
+
     html += '<tr onclick="openToolModal(\''+t.id+'\')">' +
-      '<td style="font-weight:600;color:#fff">'+t.name+'</td>' +
-      '<td style="color:rgba(255,255,255,.5)">'+t.vendor+'</td>' +
+      '<td style="font-weight:600;color:var(--mk-blue)">'+t.name+'</td>' +
+      '<td style="color:#6B7280">'+t.vendor+'</td>' +
       '<td><span class="badge cat">'+t.cat+'</span></td>' +
       '<td><span class="badge '+sc+'">'+t.status+'</span></td>' +
-      '<td><div style="display:flex;align-items:center;gap:8px"><span style="font-size:11px;font-weight:700;color:'+(t.util>=75?'#4ade80':t.util>=55?'#fbbf24':'#f87171')+'">'+t.util+'%</span><div class="pbar" style="width:60px"><div class="pbar-fill '+(t.util>=75?'green':t.util>=55?'gold':'red')+'" style="width:'+t.util+'%"></div></div></div></td>' +
-      '<td style="font-family:\'DM Mono\',monospace;color:rgba(255,255,255,.7)">'+col4+'</td>' +
+      '<td><div style="display:flex;align-items:center;gap:8px"><span style="font-size:11px;font-weight:700;color:'+(t.util>=75?'#166534':t.util>=55?'#854d0e':'#991b1b')+'">'+t.util+'%</span><div class="pbar" style="width:60px"><div class="pbar-fill '+(t.util>=75?'green':t.util>=55?'gold':'red')+'" style="width:'+t.util+'%"></div></div></div></td>' +
+      '<td style="font-family:\'DM Mono\',monospace;color:#374151">'+col4+'</td>' +
       '<td><span class="heat '+hcls+'">'+hlbl+'</span></td>' +
-      '<td style="color:rgba(255,255,255,.5)">'+t.users+'</td>' +
+      '<td style="color:#6B7280">'+t.users+'</td>' +
+      '<td style="max-width:200px">'+redCell+'</td>' +
     '</tr>';
   });
   tbody.innerHTML = html;
@@ -1815,11 +2622,11 @@ function renderUseCasesPersona(persona){
         // KPI pill
         '<div style="display:flex;align-items:center;gap:6px;margin-bottom:10px">' +
           '<svg viewBox="0 0 24 24" style="width:11px;height:11px;stroke:'+meta.color+';fill:none;flex-shrink:0"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>' +
-          '<span style="font-size:11px;font-weight:600;color:rgba(255,255,255,.6)">'+uc.kpi+'</span>' +
+          '<span style="font-size:11px;font-weight:600;color:#4B5563">'+uc.kpi+'</span>' +
         '</div>' +
 
         // Insight panel (persona-specific)
-        (insight ? '<div style="background:rgba(255,255,255,.05);border-left:2px solid '+priColor+';border-radius:0 6px 6px 0;padding:9px 12px;margin-bottom:12px;font-size:11px;color:rgba(255,255,255,.65);line-height:1.6">'+insight+'</div>' : '') +
+        (insight ? '<div style="background:#F1F3F8;border-left:2px solid '+priColor+';border-radius:0 6px 6px 0;padding:9px 12px;margin-bottom:12px;font-size:11px;color:#374151;line-height:1.6">'+insight+'</div>' : '') +
 
         // Gap flag
         (uc.gap && uc.gap !== 'No' ?
@@ -1851,7 +2658,7 @@ function renderUseCasesPersona(persona){
       h2 += '<tr>' +
         '<td style="font-weight:600;color:#fff">'+u.uc+'</td>' +
         '<td style="color:var(--mk-sky)">'+u.primary+'</td>' +
-        '<td style="color:rgba(255,255,255,.5)">'+u.supporting+'</td>' +
+        '<td style="color:#6B7280">'+u.supporting+'</td>' +
         '<td><span style="font-size:11px;font-weight:600;color:'+(hasgap?'#fbbf24':'#4ade80')+'">'+u.gap+'</span></td>' +
         '<td><span class="badge '+matBadge+'">'+u.maturity+'</span></td>' +
       '</tr>';
@@ -1876,86 +2683,209 @@ function renderUseCases(){
 // ──────────────────────────────────────────────
 // INTEGRATIONS
 // ──────────────────────────────────────────────
-function renderIntegrations(data){
+// ──────────────────────────────────────────────
+// INTEGRATIONS — unified table
+// ──────────────────────────────────────────────
+
+function buildIntegrationsUnified(){
+  var active = INTEGRATIONS.map(function(i){
+    return {
+      from:i.from, to:i.to, type:i.type,
+      configured:true,
+      health:i.health,
+      healthLabel: i.health==='ok'?'Healthy':i.health==='warn'?'Degraded':'Down',
+      latency:i.latency,
+      doc:i.doc,
+      value:i.value||'—',
+      effort:'—',
+      notes:i.notes||''
+    };
+  });
+  var notSetup = INTEGRATIONS_NOTSETUP.map(function(i){
+    return {
+      from:i.from, to:i.to, type:i.type,
+      configured:false,
+      health:'notsetup',
+      healthLabel:'Not configured',
+      latency:'—',
+      doc:'None',
+      value:i.value,
+      effort:i.effort,
+      notes:i.why||''
+    };
+  });
+  return active.concat(notSetup);
+}
+
+// Global popover state
+var openPopoverId = null;
+
+// Notes modal
+function toggleNotesPopover(id, event){
+  event.stopPropagation();
+  var pop = document.getElementById('pop-'+id);
+  if(!pop) return;
+
+  // Get the note text from the popover element
+  var textEl = pop.querySelector('.notes-popover-text');
+  var noteText = textEl ? textEl.textContent : '';
+
+  // Get the row context — from/to from the closest tr
+  var btn = event.currentTarget;
+  var tr = btn.closest('tr');
+  var cells = tr ? tr.querySelectorAll('td') : [];
+  var from = cells[0] ? cells[0].textContent.trim() : '';
+  var to   = cells[1] ? cells[1].textContent.trim() : '';
+  var label = (from && to) ? from + ' → ' + to : 'Integration notes';
+
+  // Build and show modal
+  var overlay = document.getElementById('notes-modal-overlay');
+  if(!overlay){
+    overlay = document.createElement('div');
+    overlay.id = 'notes-modal-overlay';
+    overlay.style.cssText = 'position:fixed;inset:0;background:rgba(4,14,75,.45);backdrop-filter:blur(3px);z-index:9999;display:flex;align-items:center;justify-content:center;padding:24px';
+    overlay.addEventListener('click', function(e){ if(e.target===overlay) closeNotesModal(); });
+    document.body.appendChild(overlay);
+  }
+
+  overlay.innerHTML =
+    '<div style="background:#fff;border-radius:12px;max-width:480px;width:100%;box-shadow:0 24px 60px rgba(4,14,75,.2);overflow:hidden">' +
+      '<div style="background:var(--mk-blue);padding:18px 22px 16px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px">' +
+        '<div>' +
+          '<div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.5);margin-bottom:5px">Integration notes</div>' +
+          '<div style="font-size:15px;font-weight:700;color:#fff;line-height:1.3">'+label+'</div>' +
+        '</div>' +
+        '<button onclick="closeNotesModal()" style="background:rgba(255,255,255,.12);border:none;color:rgba(255,255,255,.7);width:28px;height:28px;border-radius:50%;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .12s" onmouseover="this.style.background=\'rgba(255,255,255,.25)\'" onmouseout="this.style.background=\'rgba(255,255,255,.12)\'">✕</button>' +
+      '</div>' +
+      '<div style="padding:22px">' +
+        '<p style="font-size:13px;color:#374151;line-height:1.7;margin:0">'+noteText+'</p>' +
+      '</div>' +
+    '</div>';
+
+  overlay.style.display = 'flex';
+}
+
+function closeNotesModal(){
+  var overlay = document.getElementById('notes-modal-overlay');
+  if(overlay) overlay.style.display = 'none';
+}
+
+// Close on Escape
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape') closeNotesModal();
+});
+
+// Close popovers when clicking outside
+document.addEventListener('click', function(){
+  if(openPopoverId){
+    var pop = document.getElementById('pop-'+openPopoverId);
+    if(pop) pop.classList.remove('open');
+    openPopoverId = null;
+  }
+});
+
+function renderIntegrationsTable(data){
   var el = document.getElementById('int-list');
   if(!el) return;
-  var html = '<div style="background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:10px;overflow:hidden">';
-  data.forEach(function(i){
-    html += '<div class="int-row" data-health="'+i.health+'" data-type="'+i.type+'">' +
-      '<div class="int-from">'+i.from+'</div>' +
-      '<div class="int-arrow">→</div>' +
-      '<div class="int-to">'+i.to+'</div>' +
-      '<span class="int-type">'+i.type+'</span>' +
-      '<span class="int-health '+i.health+'">'+(i.health==='ok'?'Healthy':i.health==='warn'?'Degraded':'Down')+'</span>' +
-      '<span class="int-latency">'+i.latency+'</span>' +
-      '<span style="font-size:10px;padding:2px 7px;border-radius:3px;background:rgba(255,255,255,.05);color:rgba(255,255,255,.4);margin-left:8px">Doc: '+i.doc+'</span>' +
-    '</div>';
+
+  var healthStyle = {
+    ok:      {bg:'#dcfce7', color:'#166534', border:'#86efac'},
+    warn:    {bg:'#fef9c3', color:'#854d0e', border:'#fde68a'},
+    down:    {bg:'#fee2e2', color:'#991b1b', border:'#fca5a5'},
+    notsetup:{bg:'#F1F3F8', color:'#6B7280', border:'#D0D5E2'}
+  };
+  var valueStyle = {
+    High:  {bg:'#dcfce7', color:'#166534'},
+    Medium:{bg:'#fef9c3', color:'#854d0e'},
+    Low:   {bg:'#F1F3F8', color:'#6B7280'},
+    '—':   {bg:'transparent', color:'#9CA3AF'}
+  };
+  var effortStyle = {
+    Low:   {bg:'#dcfce7', color:'#166534'},
+    Medium:{bg:'#fef9c3', color:'#854d0e'},
+    High:  {bg:'#fee2e2', color:'#991b1b'},
+    '—':   {bg:'transparent', color:'#9CA3AF'}
+  };
+
+  var html = '<table class="tbl"><thead><tr>' +
+    '<th>From</th>' +
+    '<th>To</th>' +
+    '<th>Type</th>' +
+    '<th>Status</th>' +
+    '<th>Latency</th>' +
+    '<th>Doc coverage</th>' +
+    '<th>Value</th>' +
+    '<th>Effort</th>' +
+    '<th>Notes</th>' +
+  '</tr></thead><tbody>';
+
+  data.forEach(function(i, idx){
+    var hs = healthStyle[i.health] || healthStyle.notsetup;
+    var vs = valueStyle[i.value] || valueStyle['—'];
+    var es = effortStyle[i.effort] || effortStyle['—'];
+    var rowBg = i.configured ? '' : 'background:#FAFBFD;';
+    var popId = 'int-pop-'+idx;
+
+    var notesCell = i.notes && i.notes !== '—'
+      ? '<div class="notes-popover-wrap">' +
+          '<button class="notes-btn" onclick="toggleNotesPopover(\''+popId+'\',event)">' +
+            '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>' +
+            'See notes' +
+          '</button>' +
+          '<div class="notes-popover" id="pop-'+popId+'">' +
+            '<div class="notes-popover-text">'+i.notes+'</div>' +
+          '</div>' +
+        '</div>'
+      : '<span style="font-size:11px;color:#9CA3AF">—</span>';
+
+    html += '<tr style="'+rowBg+'">' +
+      '<td style="font-weight:600;color:var(--mk-blue)">'+i.from+'</td>' +
+      '<td style="font-weight:600;color:var(--mk-blue)">'+i.to+'</td>' +
+      '<td><span style="font-size:10px;font-weight:600;padding:2px 8px;border-radius:3px;background:#dbeafe;color:#1e40af">'+i.type+'</span></td>' +
+      '<td><span style="font-size:10px;font-weight:700;padding:3px 9px;border-radius:20px;background:'+hs.bg+';color:'+hs.color+';border:1px solid '+hs.border+'">'+i.healthLabel+'</span></td>' +
+      '<td style="font-family:\'DM Mono\',monospace;font-size:11px;color:var(--lm-text3)">'+i.latency+'</td>' +
+      '<td>' +
+        (i.doc==='Full'?'<span style="font-size:10px;font-weight:600;color:#166534">✓ Full</span>':
+         i.doc==='Partial'?'<span style="font-size:10px;font-weight:600;color:#854d0e">~ Partial</span>':
+         '<span style="font-size:10px;font-weight:600;color:#991b1b">✗ None</span>') +
+      '</td>' +
+      '<td>'+(i.value!=='—'?'<span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;background:'+vs.bg+';color:'+vs.color+'">'+i.value+'</span>':'<span style="font-size:11px;color:#9CA3AF">—</span>')+'</td>' +
+      '<td>'+(i.effort!=='—'?'<span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;background:'+es.bg+';color:'+es.color+'">'+i.effort+'</span>':'<span style="font-size:11px;color:#9CA3AF">—</span>')+'</td>' +
+      '<td>'+notesCell+'</td>' +
+    '</tr>';
   });
-  html += '</div>';
+
+  html += '</tbody></table>';
   el.innerHTML = html;
 }
 
-function renderIntegrationsNotSetup(){
-  var el = document.getElementById('int-notsetup-list');
-  if(!el) return;
-  var valueColor = {High:'#4ade80',Medium:'#fbbf24',Low:'#adb5bd'};
-  var valueBg    = {High:'rgba(34,197,94,.08)',Medium:'rgba(245,158,11,.08)',Low:'rgba(255,255,255,.04)'};
-  var effortColor = {Low:'#4ade80',Medium:'#fbbf24',High:'#f87171'};
-  var html = '';
-  INTEGRATIONS_NOTSETUP.forEach(function(i){
-    html += '<div style="display:flex;align-items:flex-start;gap:14px;padding:14px 16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:8px;margin-bottom:8px">' +
-      '<div style="width:7px;height:7px;border-radius:50%;background:#6c757d;flex-shrink:0;margin-top:6px"></div>' +
-      '<div style="flex:1;min-width:0">' +
-        '<div style="display:flex;align-items:center;gap:8px;margin-bottom:5px;flex-wrap:wrap">' +
-          '<span style="font-size:13px;font-weight:700;color:#fff">'+i.from+'</span>' +
-          '<span style="color:rgba(255,255,255,.3);font-size:12px">→</span>' +
-          '<span style="font-size:13px;font-weight:700;color:#fff">'+i.to+'</span>' +
-          '<span style="font-size:9px;font-weight:600;padding:2px 8px;border-radius:3px;background:rgba(3,145,242,.12);color:#93c5fd">'+i.type+'</span>' +
-        '</div>' +
-        '<div style="font-size:12px;color:rgba(255,255,255,.55);line-height:1.55">'+i.why+'</div>' +
-      '</div>' +
-      '<div style="display:flex;flex-direction:column;gap:5px;flex-shrink:0;align-items:flex-end">' +
-        '<div style="display:flex;align-items:center;gap:5px">' +
-          '<span style="font-size:9px;color:rgba(255,255,255,.35)">Value</span>' +
-          '<span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;background:'+valueBg[i.value]+';color:'+valueColor[i.value]+'">'+i.value+'</span>' +
-        '</div>' +
-        '<div style="display:flex;align-items:center;gap:5px">' +
-          '<span style="font-size:9px;color:rgba(255,255,255,.35)">Effort</span>' +
-          '<span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;background:rgba(255,255,255,.05);color:'+effortColor[i.effort]+'">'+i.effort+'</span>' +
-        '</div>' +
-        '<span style="font-size:9px;font-weight:700;padding:3px 9px;border-radius:20px;background:rgba(100,100,120,.2);color:#94a3b8;text-transform:uppercase;letter-spacing:.04em">Not configured</span>' +
-      '</div>' +
-    '</div>';
-  });
-  el.innerHTML = html;
-}
+// Legacy stub kept for INIT call compatibility
+function renderIntegrations(data){ renderIntegrationsTable(buildIntegrationsUnified()); }
+function renderIntegrationsNotSetup(){ /* merged into renderIntegrations */ }
 
 function filterInt(f, btn){
   document.querySelectorAll('#pg-integrations .filter-chip').forEach(function(b){b.classList.remove('active');});
   btn.classList.add('active');
-  var data = INTEGRATIONS;
-  if(f==='ok'||f==='warn'||f==='down') data = data.filter(function(i){return i.health===f;});
-  else if(f!=='all') data = data.filter(function(i){return i.type===f||i.type.indexOf(f)>-1;});
-  renderIntegrations(data);
+  var all = buildIntegrationsUnified();
+  var data;
+  if(f==='all'){
+    data = all;
+  } else if(f==='notsetup'){
+    data = all.filter(function(i){return !i.configured;});
+  } else if(f==='ok'||f==='warn'||f==='down'){
+    data = all.filter(function(i){return i.health===f;});
+  } else {
+    data = all.filter(function(i){return i.type===f||i.type.indexOf(f)>-1;});
+  }
+  renderIntegrationsTable(data);
 }
 
 // ──────────────────────────────────────────────
 // REDUNDANCIES
 // ──────────────────────────────────────────────
 function renderRedundancies(){
-  var el = document.getElementById('redundancy-list');
-  if(!el) return;
-  var html = '';
-  REDUNDANCIES.forEach(function(r){
-    html += '<div class="red-group">' +
-      '<div class="red-group-title">'+r.title+'</div>' +
-      '<div class="red-group-sub">'+r.sub+'</div>' +
-      '<div class="red-tools">'+r.tools.map(function(t){return '<span class="red-tool '+t.c+'">'+t.n+'</span>';}).join('')+'</div>' +
-      '<div style="font-size:12px;color:rgba(255,255,255,.55);line-height:1.6;margin-bottom:8px">'+r.action+'</div>' +
-      '<div class="red-savings">Recoverable spend: <strong>'+r.savings+'</strong></div>' +
-    '</div>';
-  });
-  el.innerHTML = html;
+  var persona = document.body.className || 'marketing';
+  renderRedundanciesPersona(persona);
 }
 
 // ──────────────────────────────────────────────
@@ -2002,12 +2932,12 @@ function renderAIRecs(){
 
   var html = '<div style="display:flex;flex-direction:column;gap:6px">';
   data.forEach(function(r){
-    html += '<div id="ai-list-item-'+r.id+'" onclick="selectRec(\''+r.id+'\')" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:11px 13px;cursor:pointer;transition:all .12s" onmouseover="this.style.borderColor=\'rgba(3,145,242,.4)\'" onmouseout="if(selectedRecId!==\''+r.id+'\')this.style.borderColor=\'rgba(255,255,255,.08)\'">' +
+    html += '<div id="ai-list-item-'+r.id+'" onclick="selectRec(\''+r.id+'\')" style="background:#F8F9FC;border:1px solid #E2E6EF;border-radius:8px;padding:11px 13px;cursor:pointer;transition:all .12s" onmouseover="this.style.borderColor=\'rgba(3,145,242,.4)\'" onmouseout="if(selectedRecId!==\''+r.id+'\')this.style.borderColor=\'rgba(255,255,255,.08)\'">' +
       '<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:4px">' +
-        '<span style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.35)">'+r.cat+'</span>' +
+        '<span style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#9CA3AF">'+r.cat+'</span>' +
         '<span style="font-size:9px;font-weight:700;padding:2px 7px;border-radius:20px;flex-shrink:0;background:'+pbg[r.priority]+';color:'+pcolor[r.priority]+'">'+r.priority+'</span>' +
       '</div>' +
-      '<div style="font-size:12px;font-weight:600;color:#fff;line-height:1.35">'+r.title+'</div>' +
+      '<div style="font-size:12px;font-weight:600;color:#111827;line-height:1.35">'+r.title+'</div>' +
     '</div>';
   });
   html += '</div>';
@@ -2040,42 +2970,47 @@ function selectRec(id){
   var pbg    = {Critical:'rgba(232,71,42,.1)',High:'rgba(245,158,11,.1)',Medium:'rgba(3,145,242,.1)',Low:'rgba(34,197,94,.08)'};
 
   var html =
-    '<div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden">' +
-    '<div style="background:var(--mk-blue);padding:18px 20px;border-bottom:1px solid rgba(255,255,255,.1)">' +
-      '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;gap:10px">' +
-        '<span style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.45)">'+r.cat+'</span>' +
-        '<span style="font-size:9px;font-weight:700;padding:3px 10px;border-radius:20px;background:'+pbg[r.priority]+';color:'+pcolor[r.priority]+'">'+r.priority+'</span>' +
+    '<div style="background:#fff;border:1px solid var(--lm-border);border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(4,14,75,.07)">' +
+    // Header — white, dark text
+    '<div style="background:#fff;padding:20px 22px;border-bottom:1px solid var(--lm-border)">' +
+      '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;gap:10px">' +
+        '<span style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding:3px 9px;border-radius:20px;background:#dbeafe;color:#1e40af;border:1px solid #bfdbfe">'+r.cat+'</span>' +
+        '<span style="font-size:10px;font-weight:700;padding:3px 11px;border-radius:20px;background:'+pbg[r.priority]+';color:'+pcolor[r.priority]+';border:1px solid '+pcolor[r.priority]+'40">'+r.priority+'</span>' +
       '</div>' +
-      '<div style="font-size:16px;font-weight:700;color:#fff;line-height:1.35;margin-bottom:8px">'+r.title+'</div>' +
-      '<div style="display:flex;align-items:center;gap:6px">' +
-        '<svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke:#4ade80;fill:none;flex-shrink:0"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>' +
-        '<span style="font-size:12px;font-weight:700;color:#4ade80">'+r.impact+'</span>' +
+      '<div style="font-size:17px;font-weight:700;color:var(--mk-blue);line-height:1.3;margin-bottom:10px">'+r.title+'</div>' +
+      '<div style="display:flex;align-items:center;gap:6px;padding:8px 12px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:6px;display:inline-flex">' +
+        '<svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke:#166534;fill:none;flex-shrink:0"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>' +
+        '<span style="font-size:12px;font-weight:700;color:#166534">'+r.impact+'</span>' +
       '</div>' +
     '</div>' +
-    '<div style="padding:18px 20px">' +
-      '<div style="font-size:13px;color:rgba(255,255,255,.7);line-height:1.65;margin-bottom:20px">'+r.body+'</div>' +
-      '<div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.35);margin-bottom:12px">Action plan — Now / Next / Later</div>' +
+    // Body — light background
+    '<div style="padding:20px">' +
+      '<div style="font-size:13px;color:#374151;line-height:1.7;margin-bottom:20px">'+r.body+'</div>' +
+      '<div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#9CA3AF;margin-bottom:12px">Action plan — Now / Next / Later</div>' +
       '<div style="display:grid;grid-template-columns:1fr;gap:10px">' +
-        '<div style="background:rgba(3,145,242,.06);border:1px solid rgba(3,145,242,.2);border-radius:8px;padding:13px 14px">' +
+        // Now — red tinted
+        '<div style="background:#FFF5F3;border:1px solid #FCC9C0;border-radius:8px;padding:13px 14px">' +
           '<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">' +
             '<div style="width:24px;height:24px;border-radius:50%;background:var(--mk-red);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="font-size:10px;font-weight:700;color:#fff">1</span></div>' +
-            '<span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--mk-sky)">Now — do this week</span>' +
+            '<span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#111827">Now — do this week</span>' +
           '</div>' +
-          '<div style="font-size:12px;color:rgba(255,255,255,.7);line-height:1.6">'+r.now+'</div>' +
+          '<div style="font-size:12px;color:#374151;line-height:1.6">'+r.now+'</div>' +
         '</div>' +
-        '<div style="background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.2);border-radius:8px;padding:13px 14px">' +
+        // Next — amber tinted
+        '<div style="background:#FFFBEB;border:1px solid #FDE68A;border-radius:8px;padding:13px 14px">' +
           '<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">' +
             '<div style="width:24px;height:24px;border-radius:50%;background:#f59e0b;display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="font-size:10px;font-weight:700;color:#fff">2</span></div>' +
-            '<span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#fbbf24">Next — this quarter</span>' +
+            '<span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#111827">Next — this quarter</span>' +
           '</div>' +
-          '<div style="font-size:12px;color:rgba(255,255,255,.7);line-height:1.6">'+r.next+'</div>' +
+          '<div style="font-size:12px;color:#374151;line-height:1.6">'+r.next+'</div>' +
         '</div>' +
-        '<div style="background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.15);border-radius:8px;padding:13px 14px">' +
+        // Later — green tinted
+        '<div style="background:#F0FDF4;border:1px solid #BBF7D0;border-radius:8px;padding:13px 14px">' +
           '<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">' +
             '<div style="width:24px;height:24px;border-radius:50%;background:#22c55e;display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="font-size:10px;font-weight:700;color:#fff">3</span></div>' +
-            '<span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#4ade80">Later — post-execution</span>' +
+            '<span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#111827">Later — post-execution</span>' +
           '</div>' +
-          '<div style="font-size:12px;color:rgba(255,255,255,.7);line-height:1.6">'+r.later+'</div>' +
+          '<div style="font-size:12px;color:#374151;line-height:1.6">'+r.later+'</div>' +
         '</div>' +
       '</div>' +
     '</div>' +
@@ -2362,17 +3297,188 @@ var PERSONA_EXEC = {
 var PERSONA_REDUNDANCIES = {
   marketing:{
     title:'Redundancies affecting marketing operations',
-    filter:['Email / MAP — SFMC + AJO + Klaviyo + Iterable','B2B MAP — Marketo + Pardot','Personalization — Adobe Target + Dynamic Yield evaluation + RT-CDP']
+    // Email, analytics, CRM, social, video, session replay, personalization, B2B MAP
+    filter:['red1','red2','red3','red7','red8','red9','red10','red11']
   },
   it:{
-    title:'Redundancies affecting infrastructure and integration',
-    filter:['Integration / ETL — Mulesoft + Boomi + ADF','ML platforms — SageMaker + H2O + Databricks','SIEM — Splunk + Microsoft Sentinel']
+    title:'Redundancies affecting infrastructure and engineering',
+    // Integration/ETL, ML platforms, SIEM, session replay, BI/analytics, CRM
+    filter:['red2','red3','red4','red5','red6','red7']
   },
   finance:{
-    title:'All redundancies ranked by recoverable spend',
+    title:'All redundancies — sorted by recoverable spend',
     filter:null
   }
 };
+
+// ──────────────────────────────────────────────
+// TOOL RECOMMENDATIONS DATA
+// ──────────────────────────────────────────────
+var TOOL_RECS = {
+  'aep':{
+    gaps:['Only 40% of configured audience segments are being activated downstream to AJO and paid media. 60% of licensed segmentation capability is unused.','Real-time streaming latency (320ms) exceeds the 200ms SLA — degrading profile freshness for time-sensitive journeys.','3 legacy source systems (on-prem clinical, billing, prior auth) have not completed migration into AEP schemas — creating an incomplete member 360.','B2B account profile capability is licensed but not configured — no account-level segmentation exists.'],
+    performance:['Schema and dataset management is strong at 88% utilization — data modeling is well governed.','Identity resolution (ECID) is operating effectively across web, app, and email channels.','Data ingestion pipelines (batch and streaming) are reliable at 85–90% utilization.','Consent and suppression governance is active and compliant with HIPAA requirements.'],
+    now:'Audit all inactive segments and categorize as "ready to activate" vs "blocked by data dependency." Push all ready segments to AJO and paid media destinations within 30 days.',
+    next:'Complete WS3 source system migrations to unlock the 3 blocked clinical data streams. Configure B2B account profiles for the employer group segment — estimated 6-week effort.',
+    nextBest:'Evaluate AEP B2B Edition features for the employer/group segment. Negotiate multi-year contract now (5 months before Mar 2026 expiry) to avoid the 15% Adobe price increase.'
+  },
+  'ajo':{
+    gaps:['Only 3 of 8 planned journeys are live — 5 are blocked on WS5 AEP member 360 data dependency.','SMS channel is underutilized at 52% despite converting at 2.4× the email rate.','Decision Management (offers engine) is licensed and not configured — zero personalized offers are being served.','AI-assisted send-time optimization is available but only running on 48% of campaigns.'],
+    performance:['Email journey builder is the highest-used feature at 88% — core channel is well adopted.','Suppression and frequency capping is strong at 83% — compliance posture is healthy.','Journey reporting provides good visibility into funnel performance and drop-off points.','Triggered event journeys are stable and reliable at 79% utilization.'],
+    now:'Prioritize unblocking the 5 stalled journeys — escalate WS5 AEP dependency resolution. Each additional live journey reduces cost-per-journey from $97K to $36K at full 8-journey activation.',
+    next:'Configure SMS sends for all active journeys. Given 2.4× conversion rate vs email, front-load SMS in every journey cadence. Configure Decision Management for personalized offer serving — 6-week configuration effort.',
+    nextBest:'Enable AI send-time optimization on all journeys. Engage Adobe on AJO B2B Edition for employer group journeys — eliminates need for some Marketo overlap.'
+  },
+  'snowflake':{
+    gaps:['3 legacy source systems have not migrated — creating gaps in the member data foundation.','Multi-cloud replication to Azure is configured but only 45% utilized — DR posture is partial.','Native Apps Framework is available but not explored — potential for in-platform ML inference.','Cost monitoring resource monitors are configured but auto-suspend policies need tuning — estimated $55K in idle compute waste.'],
+    performance:['Highest-performing platform in the stack at 88% overall utilization.','SQL analytics and dbt transformation layer are extremely well adopted.','ML feature store integration with Databricks is strong and reliable.','Time travel and fail-safe data recovery is active — data protection posture is excellent.'],
+    now:'Tune auto-suspend policies on idle compute clusters. Datadog rightsizing data shows $55K in recoverable idle compute. Apply reserved capacity to stable workloads.',
+    next:'Migrate the 3 remaining source systems into Snowflake raw landing zone. This is the critical dependency for AEP member 360 completion and AJO journey unblocking.',
+    nextBest:'Negotiate reserved capacity commitment at Jul 2026 renewal — estimated $68K annual savings. Evaluate Native Apps for in-platform propensity scoring to reduce Databricks round-trip latency.'
+  },
+  'workfront':{
+    gaps:['22% of creative approvals are bypassing Workfront via Slack — creating MLR audit trail gaps for regulated content.','Contract expired Jun 2025 — currently on month-to-month at an estimated 20% cost premium ($62K/yr overage).','Portfolio and program management is only 48% utilized — exec-level visibility into campaign portfolio is limited.','Workfront Goals module is licensed but unused — OKR tracking has no connection to campaign execution.'],
+    performance:['Campaign brief intake and creative production workflow is strong at 82% utilization.','API and webhook integrations with AJO and GenStudio are performing well at 71%.','Budget tracking features are actively used at 62% — finance has visibility into campaign spend.','MLR compliance routing is functional at 69% — regulated content approvals are tracked.'],
+    now:'Renew Workfront contract immediately — month-to-month is costing $62K/yr in premium. A 3-year commit eliminates this and locks current pricing. Enforce Workfront-only MLR approval routing.',
+    next:'Configure Workfront Portfolio views for executive-level campaign portfolio visibility. Complete the Workfront–AJO API integration (currently 74% done via WS6).',
+    nextBest:'Enable Workfront Goals and connect campaign OKRs to execution. Evaluate Workfront Fusion to automate approval-to-launch handoff — reduces avg brief-to-launch from 18 days.'
+  },
+  'sfmc':{
+    gaps:['$920K/yr being spent on a platform in active deprecation — highest cost redundancy in the stack.','8 of 47 programs have undocumented scoring logic, blocking migration to AJO.','Einstein AI features are only 22% utilized — no ROI being captured from AI investment before exit.','Parallel run mode is increasing operational complexity and risk of duplicate sends.'],
+    performance:['Email bulk and triggered send reliability remains high at 74% — no deliverability issues.','Content Builder and suppression management are functional and actively maintained.','Automation Studio is running legacy workflows that have not yet been migrated.','Contact Builder audience management is still relied on for 12 legacy segments.'],
+    now:'Do not invest in any new SFMC journeys, templates, or configurations. All new campaigns go in AJO. Immediately document the 8 programs with undocumented scoring logic.',
+    next:'Complete WS7 Batch 1 migration (the documented programs). Assign a reverse-engineering sprint to the 8 undocumented programs — this is the only remaining blocker for full migration.',
+    nextBest:'Target SFMC decommission Q1 2027 — every quarter of early completion saves $230K. Brief procurement on Jan 2027 termination notice requirements now.'
+  },
+  'claude-api':{
+    gaps:['Only 4 of 12 planned content types are on the Claude API pipeline — 8 remain on manual/agency production.','JSON-mode structured outputs are used but output schema validation is not yet automated — occasional malformed responses require manual intervention.','No rate limit monitoring is in place — if usage spikes, there is no alerting before service degradation.','Compliance review assistance feature is only 68% utilized — legal/MLR review could be partially accelerated.'],
+    performance:['Highest-utilization AI tool in the stack at 88% — excellent adoption among the content and orchestration teams.','Long-form content generation and document summarization are performing at 92–94% utilization.','Email copy and SMS generation are at 85–90% utilization — strong content production impact.','Workstream narrative generation for status reports is at 86% — saving significant ops time weekly.'],
+    now:'Map the 8 remaining content types to Claude API prompt templates. Start with the highest-volume types (push notifications, social captions, SMS variants) — all are ready to scale without additional approval work.',
+    next:'Build automated JSON schema validation for structured outputs. Set up usage monitoring and rate limit alerting via the Anthropic API dashboard or custom logging.',
+    nextBest:'Scale to all 12 content types by Q2 2026 — projected to save $180K/yr in agency fees and reduce content production time by 60%. Evaluate commit pricing tier to reduce per-token cost by 30%.'
+  },
+  'databricks':{
+    gaps:['3 of 4 engineers are not yet trained on AutoML — team defaults to manual Scikit-learn, missing efficiency gains.','Unity Catalog governance is partially configured — full data lineage and access control rollout needed before Q3 audit.','Model serving (real-time inference) is only 48% utilized — most models are batch, not real-time.','Vector search capability is available but unexplored — no RAG or embedding-based use cases are running.'],
+    performance:['ML model tracking via MLflow is strong at 78% — experiment reproducibility is good.','Notebook collaboration is the most-used feature at 85% — team productivity is high.','Feature store is active at 68% — Snowflake feature tables are well integrated.','4 production models are running stably — propensity, churn, next-best-action, and claims risk.'],
+    now:'Schedule AutoML training for the 3 untrained engineers. This is a 2-day enablement — the capability is licensed and ready. Also complete Unity Catalog rollout before Q3 audit.',
+    next:'Migrate H2O.ai models to Databricks AutoML before Dec 2025 contract expiry. Enable real-time model serving for the member intent classifier — reduces scoring latency from batch (daily) to real-time.',
+    nextBest:'Evaluate Vector Search for member FAQ embedding and next-best-action semantic search. Consider serverless compute tier at Nov 2026 renewal to reduce idle cluster costs by ~$28K.'
+  },
+  'github':{
+    gaps:['8 of 30 engineers do not have Copilot enabled — estimated 30–40% velocity improvement being missed.','GitHub Codespaces is available but unused — new engineer environment setup still takes 2–3 days.','Projects (kanban/roadmap) is only 45% utilized — engineering sprint planning is partially in Jira and partially in GitHub.','Secret scanning is active but coverage is not verified across all private repos.'],
+    performance:['Highest-utilization platform in the stack at 91% — mission critical for all engineering work.','GitHub Actions CI/CD is excellent at 88% — 14 microservices and 3 Terraform environments covered.','Pull request and code review workflow is very strong at 94% — code quality practices are mature.','Dependabot is active at 82% — dependency vulnerabilities are being caught before merge.'],
+    now:'Enable Copilot for the 8 remaining engineers immediately — this is a license toggle, not a configuration effort. Estimated velocity impact: 30–40% improvement per engineer.',
+    next:'Set up Codespaces for new engineer onboarding — reduces environment setup from 2–3 days to under 2 hours. Audit secret scanning coverage across all private repos.',
+    nextBest:'Consolidate engineering sprint boards from Jira + GitHub Projects into a single system. Evaluate GitHub Advanced Security (GHAS) for the full SAST + secret scanning + code scanning bundle at Oct 2027 renewal.'
+  }
+};
+
+function buildRecsHTML(t, ext){
+  var recs = TOOL_RECS[t.id];
+
+  // Generate smart defaults for tools without specific TOOL_RECS entries
+  if(!recs){
+    var underusedFeats = ext.features.filter(function(f){return f.score<50;});
+    var topFeats = ext.features.filter(function(f){return f.score>=75;}).slice(0,3);
+    var avgScore = Math.round(ext.features.reduce(function(s,f){return s+f.score;},0)/ext.features.length);
+    recs = {
+      gaps: underusedFeats.slice(0,4).map(function(f){
+        return f.name+' is at '+f.score+'% utilization — significantly below the platform average of '+avgScore+'%.';
+      }).concat(t.risks.slice(0,2)),
+      performance: topFeats.map(function(f){
+        return f.name+' is a standout at '+f.score+'% utilization — above benchmark.';
+      }).concat([
+        'Overall platform utilization is '+t.util+'% — '+(t.util>=75?'above':'below')+' the 74% industry benchmark.',
+        t.users+' active users with $'+(t.users>0?Math.round(t.cost*1000/t.users):'N/A')+' cost per user.'
+      ]),
+      now: t.status==='Deprecated'
+        ? 'Plan and document the exit timeline. Identify all dependencies on this platform and assign migration owners.'
+        : t.util<50
+          ? 'Audit adoption blockers. Survey the '+t.users+' licensed users to understand why utilization is at '+t.util+'%. Low adoption at this cost ($'+t.cost+'K/yr) needs an immediate explanation.'
+          : 'Review underutilized features ('+underusedFeats.length+' features below 50%) and assess whether training or configuration changes can close the gap within 30 days.',
+      next: t.alternatives&&t.alternatives.length>0
+        ? 'Evaluate replacement options: '+t.alternatives.join(', ')+'. Build a structured comparison matrix before the next contract decision point ('+ext.contract.end+').'
+        : 'Develop a feature activation roadmap for the '+underusedFeats.length+' underutilized capabilities. Prioritize by business impact and set measurable adoption targets for each quarter.',
+      nextBest: 'Conduct a formal QBR with the vendor to review roadmap, pricing leverage, and usage optimization. Target: raise utilization to 80%+ before '+ext.contract.end+' renewal to strengthen negotiating position.'
+    };
+  }
+
+  // Ensure arrays
+  var gaps = Array.isArray(recs.gaps) ? recs.gaps : [recs.gaps];
+  var perf = Array.isArray(recs.performance) ? recs.performance : [recs.performance];
+
+  return (
+    // Summarized Gaps
+    '<div class="m-section-title" style="margin-top:0"><svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Summarized gaps</div>' +
+    '<div style="display:flex;flex-direction:column;gap:8px;margin-bottom:20px">' +
+      gaps.filter(Boolean).map(function(g){
+        return '<div style="display:flex;align-items:flex-start;gap:10px;padding:10px 13px;background:#FFF5F3;border:1px solid #FCC9C0;border-radius:7px">' +
+          '<div style="width:6px;height:6px;border-radius:50%;background:#E8472A;flex-shrink:0;margin-top:5px"></div>' +
+          '<div style="font-size:12px;color:#374151;line-height:1.55">'+g+'</div>' +
+        '</div>';
+      }).join('') +
+    '</div>' +
+
+    // Summarized Performance
+    '<div class="m-section-title"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>Summarized performance</div>' +
+    '<div style="display:flex;flex-direction:column;gap:8px;margin-bottom:20px">' +
+      perf.filter(Boolean).map(function(p){
+        return '<div style="display:flex;align-items:flex-start;gap:10px;padding:10px 13px;background:#F0FDF4;border:1px solid #BBF7D0;border-radius:7px">' +
+          '<div style="width:6px;height:6px;border-radius:50%;background:#22c55e;flex-shrink:0;margin-top:5px"></div>' +
+          '<div style="font-size:12px;color:#374151;line-height:1.55">'+p+'</div>' +
+        '</div>';
+      }).join('') +
+    '</div>' +
+
+    // Now / New / Next framework
+    '<div class="m-section-title"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Action framework</div>' +
+    '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">' +
+
+      // Now — next 90 days
+      '<div style="background:#FFF5F3;border:1px solid #FCC9C0;border-radius:8px;padding:14px 15px">' +
+        '<div style="display:flex;align-items:center;gap:7px;margin-bottom:10px">' +
+          '<div style="width:26px;height:26px;border-radius:50%;background:#E8472A;display:flex;align-items:center;justify-content:center;flex-shrink:0">' +
+            '<svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke:#fff;fill:none"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>' +
+          '</div>' +
+          '<div>' +
+            '<div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#991b1b">Now</div>' +
+            '<div style="font-size:9px;color:#9CA3AF;font-weight:600">Next 90 days</div>' +
+          '</div>' +
+        '</div>' +
+        '<div style="font-size:12px;color:#374151;line-height:1.6">'+recs.now+'</div>' +
+      '</div>' +
+
+      // New — this year
+      '<div style="background:#FFFBEB;border:1px solid #FDE68A;border-radius:8px;padding:14px 15px">' +
+        '<div style="display:flex;align-items:center;gap:7px;margin-bottom:10px">' +
+          '<div style="width:26px;height:26px;border-radius:50%;background:#f59e0b;display:flex;align-items:center;justify-content:center;flex-shrink:0">' +
+            '<svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke:#fff;fill:none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>' +
+          '</div>' +
+          '<div>' +
+            '<div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#92400e">New</div>' +
+            '<div style="font-size:9px;color:#9CA3AF;font-weight:600">This year</div>' +
+          '</div>' +
+        '</div>' +
+        '<div style="font-size:12px;color:#374151;line-height:1.6">'+recs.next+'</div>' +
+      '</div>' +
+
+      // Next best actions
+      '<div style="background:#F0FDF4;border:1px solid #BBF7D0;border-radius:8px;padding:14px 15px">' +
+        '<div style="display:flex;align-items:center;gap:7px;margin-bottom:10px">' +
+          '<div style="width:26px;height:26px;border-radius:50%;background:#22c55e;display:flex;align-items:center;justify-content:center;flex-shrink:0">' +
+            '<svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke:#fff;fill:none"><polyline points="9 18 15 12 9 6"/></svg>' +
+          '</div>' +
+          '<div>' +
+            '<div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#166534">Next best actions</div>' +
+            '<div style="font-size:9px;color:#9CA3AF;font-weight:600">Strategic next steps</div>' +
+          '</div>' +
+        '</div>' +
+        '<div style="font-size:12px;color:#374151;line-height:1.6">'+recs.nextBest+'</div>' +
+      '</div>' +
+
+    '</div>'
+  );
+}
 
 // ──────────────────────────────────────────────
 // TOOL MODAL
@@ -2395,23 +3501,23 @@ function openToolModal(id){
     implementing:'background:#e8f4fb;color:#0369a1;border:1px solid #bae6fd'
   };
 
-  // Header
+  // Header — white background
   var headerHTML =
     '<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px">' +
-      '<div>' +
-        '<div style="display:flex;align-items:center;gap:6px;margin-bottom:8px">' +
-          '<span style="font-size:9px;font-weight:700;padding:3px 9px;border-radius:20px;text-transform:uppercase;letter-spacing:.05em;background:rgba(255,255,255,.15);color:rgba(255,255,255,.8)">'+t.cat+'</span>' +
-          '<span style="font-size:9px;font-weight:700;padding:3px 9px;border-radius:20px;text-transform:uppercase;letter-spacing:.05em;background:rgba(255,255,255,.1);color:#fff">'+t.vendor+'</span>' +
+      '<div style="flex:1;min-width:0">' +
+        '<div style="display:flex;align-items:center;gap:6px;margin-bottom:10px">' +
+          '<span style="font-size:9px;font-weight:700;padding:3px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.05em;background:#ede9fe;color:#5b21b6;border:1px solid #ddd6fe">'+t.cat+'</span>' +
+          '<span style="font-size:9px;font-weight:700;padding:3px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.05em;background:var(--lm-surface2);color:var(--lm-text3);border:1px solid var(--lm-border)">'+t.vendor+'</span>' +
         '</div>' +
-        '<div style="font-size:22px;font-weight:700;color:#fff;margin-bottom:2px">'+t.name+'</div>' +
-        '<div style="font-size:12px;color:rgba(255,255,255,.5)">'+t.users+' users · '+t.vendor+' · Contract expires '+ext.contract.end+'</div>' +
-        '<div style="display:flex;align-items:center;gap:8px;margin-top:10px;flex-wrap:wrap">' +
-          '<span style="font-size:10px;font-weight:700;padding:4px 10px;border-radius:4px;'+scColors[sc]+'">'+scLabel[sc]+'</span>' +
-          '<span style="font-size:10px;font-weight:600;color:rgba(255,255,255,.6)">Admin: '+ext.contract.admin+'</span>' +
-          '<span style="font-size:10px;font-weight:600;color:rgba(255,255,255,.6)">'+ext.contract.annualCost+'/yr</span>' +
+        '<div style="font-size:24px;font-weight:700;color:var(--mk-blue);margin-bottom:4px;line-height:1.2">'+t.name+'</div>' +
+        '<div style="font-size:12px;color:var(--lm-text3);margin-bottom:12px">'+t.users+' users · '+t.vendor+' · Contract expires '+ext.contract.end+'</div>' +
+        '<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">' +
+          '<span style="font-size:10px;font-weight:700;padding:4px 12px;border-radius:4px;'+scColors[sc]+'">'+scLabel[sc]+'</span>' +
+          '<span style="font-size:11px;color:var(--lm-text3)">Admin: <strong style="color:var(--mk-blue)">'+ext.contract.admin+'</strong></span>' +
+          '<span style="font-size:11px;color:var(--lm-text3)"><strong style="color:var(--mk-blue)">'+ext.contract.annualCost+'</strong>/yr</span>' +
         '</div>' +
       '</div>' +
-      '<div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex-shrink:0">' +
+      '<div style="flex-shrink:0">' +
         '<div class="score-ring-light '+hcls+'">' +
           '<span class="sval">'+t.util+'</span><span class="slbl">util%</span>' +
         '</div>' +
@@ -2428,7 +3534,8 @@ function openToolModal(id){
     {id:'usecases',label:'Use cases'},
     {id:'contract',label:'Contract'},
     {id:'envs',label:'Environments'},
-    {id:'risks',label:'Risks'}
+    {id:'risks',label:'Risks'},
+    {id:'recommendations',label:'Recommendations'}
   ];
   if(t.alternatives && t.alternatives.length>0) tabDefs.push({id:'alternatives',label:'Alternatives'});
 
@@ -2564,6 +3671,9 @@ function openToolModal(id){
       }).join('')+'</div>'
     : '');
 
+  // Recommendations tab
+  var recsHTML = buildRecsHTML(t, ext);
+
   // Assemble all sections
   var sections = {
     overview: overviewHTML,
@@ -2572,7 +3682,8 @@ function openToolModal(id){
     usecases: ucHTML,
     contract: contractHTML,
     envs: envsHTML,
-    risks: risksHTML
+    risks: risksHTML,
+    recommendations: recsHTML
   };
   if(t.alternatives && t.alternatives.length>0) sections.alternatives = '';
 
@@ -2601,8 +3712,206 @@ document.getElementById('tool-modal').addEventListener('click',function(e){
 });
 
 // ──────────────────────────────────────────────
-// INIT
+// COMPETITIVE ANALYSIS
 // ──────────────────────────────────────────────
+var COMP_DATA = {
+  companies: [
+    {id:'helix',   name:'Helix Health',   highlight:true},
+    {id:'goodrx',  name:'GoodRx'},
+    {id:'midi',    name:'Midi Health'},
+    {id:'alara',   name:'Alara Health'}
+  ],
+  overallScore: {helix:58, goodrx:84, midi:71, alara:52},
+  categories: [
+    {
+      id:'cms', label:'CMS',
+      icon:'<path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/>',
+      helix: {tool:'AEM (on-prem, migrating to EDS)',score:55,note:'Legacy Java-based AEM still on-prem for 4 properties. EDS migration 64% complete. Page load performance improving but authoring experience still complex.'},
+      goodrx:{tool:'Custom React / Next.js + Contentful',score:92,note:'Fully headless CMS with custom React frontend. Sub-second page loads across all properties. Contentful enables rapid content iteration by non-technical teams.'},
+      midi:  {tool:'Webflow + Custom CMS',score:74,note:'Webflow powers main marketing site with fast page loads and easy editor experience. Custom backend for clinical content. Limited scalability for complex personalization.'},
+      alara: {tool:'WordPress (Elementor)',score:41,note:'Standard WordPress with Elementor page builder. Functional but lacks enterprise-grade personalization, A/B testing, and headless delivery capability.'}
+    },
+    {
+      id:'crm', label:'CRM',
+      icon:'<path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>',
+      helix: {tool:'Salesforce Health Cloud + CRM',score:62,note:'Health Cloud for clinical CRM with Sales Cloud for commercial. Strong data model but integration latency (320ms) creating member profile staleness in AEP.'},
+      goodrx:{tool:'Salesforce CRM + custom CDP',score:88,note:'Enterprise Salesforce deployment with a proprietary CDP layer. Consumer health data is unified at scale across 25M+ active users. Real-time lead scoring active.'},
+      midi:  {tool:'HubSpot CRM',score:67,note:'HubSpot CRM with native marketing automation. Well integrated across channels. Limited scalability for complex clinical workflows as membership grows.'},
+      alara: {tool:'Salesforce (standard)',score:55,note:'Standard Salesforce CRM without healthcare-specific customization. No CDP layer. Member data is fragmented across Salesforce and 2 separate EHR integrations.'}
+    },
+    {
+      id:'map', label:'Marketing Automation / ESP',
+      icon:'<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>',
+      helix: {tool:'AJO (active) + SFMC (deprecating)',score:58,note:'AJO is the target platform with 3 of 8 journeys live. SFMC parallel run costs $920K/yr. Journey activation gap is the primary campaign efficiency drag.'},
+      goodrx:{tool:'Braze (mobile-first)',score:91,note:'Braze powers all email, push, SMS, and in-app messaging for GoodRx. Real-time behavioral triggers, AI-assisted send-time optimization, and 95%+ deliverability. Class-leading.'},
+      midi:  {tool:'ActiveCampaign + Klaviyo',score:69,note:'ActiveCampaign handles B2B nurture; Klaviyo manages patient email journeys. Functional but dual-platform creates segmentation inconsistency and double-counting risk.'},
+      alara: {tool:'Mailchimp (standard)',score:38,note:'Mailchimp for transactional and marketing email. No behavioral triggering, no SMS capability, limited personalization. Well below category benchmark for healthcare marketing.'}
+    },
+    {
+      id:'intelligence', label:'Intelligence / Analytics',
+      icon:'<polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>',
+      helix: {tool:'AEP + CJA + Snowflake + Looker',score:66,note:'Strong data infrastructure but CJA has low adoption (team defaults to Tableau/manual exports). Snowflake at 88% is the standout. Attribution modeling is inconsistent across teams.'},
+      goodrx:{tool:'Amplitude + dbt + BigQuery + Looker',score:89,note:'Fully modern analytics stack. Amplitude for product analytics, dbt for transformation, Looker for governed self-serve BI. Attribution is unified across all paid and organic channels.'},
+      midi:  {tool:'Mixpanel + Google Analytics 4',score:61,note:'Mixpanel for product analytics and GA4 for web. No enterprise data warehouse — reporting is ad-hoc. Attribution limited to last-click. Growing analytics maturity but gaps remain.'},
+      alara: {tool:'Google Analytics 4 only',score:34,note:'GA4 is the sole analytics platform. No product analytics, no data warehouse, no cohort analysis. Decision-making is primarily based on GA4 reports and manual spreadsheets.'}
+    },
+    {
+      id:'datalake', label:'Data Lake / Infrastructure',
+      icon:'<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>',
+      helix: {tool:'Snowflake + Kafka + dbt + AWS',score:71,note:'Mature lakehouse with strong Snowflake adoption. Kafka CDC streams for real-time member data. 3 source systems still not migrated. Databricks ML layer well integrated.'},
+      goodrx:{tool:'BigQuery + Pub/Sub + dbt + GCP',score:90,note:'Fully cloud-native GCP data stack. BigQuery at petabyte scale, Pub/Sub for real-time events, dbt for transformation. ML inference runs on Vertex AI with sub-100ms latency.'},
+      midi:  {tool:'Fivetran + Redshift + dbt (partial)',score:55,note:'Fivetran managed ELT into Redshift. dbt partially implemented. No streaming data layer — batch only. Data team is small (2 engineers) limiting transformation depth.'},
+      alara: {tool:'No centralized data lake',score:18,note:'No unified data infrastructure. Data lives in Salesforce, the EHR, Google Analytics, and spreadsheets. No ETL, no transformation layer. Data is not actionable at scale.'}
+    },
+    {
+      id:'tiktok', label:'TikTok Presence',
+      icon:'<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/>',
+      helix: {tool:'@helixhealth — 4.2K followers',score:28,note:'Early-stage TikTok presence. 4,200 followers, avg 180 views per video. No consistent posting cadence. Educational health content but no creator partnerships or paid amplification.'},
+      goodrx:{tool:'@goodrx — 312K followers',score:88,note:'Strong TikTok presence with 312K followers. Healthcare cost and savings content resonates well. Avg 45K views/video. Active creator partnerships with pharmacists and healthcare influencers.'},
+      midi:  {tool:'@midihealthwomen — 28K followers',score:64,note:'Growing TikTok presence focused on menopause and women\'s health. 28K followers, avg 8K views. Authentic clinician-led content drives strong engagement rate (7.2%).'},
+      alara: {tool:'No active TikTok account',score:5,note:'No TikTok presence. Missing a significant organic acquisition channel for their target demographic (30–50 women managing chronic conditions).'}
+    },
+    {
+      id:'instagram', label:'Instagram Presence',
+      icon:'<rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>',
+      helix: {tool:'@helixhealth — 6.8K followers',score:32,note:'6,800 Instagram followers. Mix of health education and company culture content. Avg 280 engagements per post. No paid social amplification on organic posts.'},
+      goodrx:{tool:'@goodrx — 198K followers',score:85,note:'198K Instagram followers. Consistent 5x/week posting cadence. High-production Reels drive strong reach. Avg 12K impressions per post. Active paid amplification of top-performing content.'},
+      midi:  {tool:'@midi.health — 41K followers',score:71,note:'41K followers with a highly engaged community. Menopause and hormone health content generates 9.1% avg engagement rate — well above healthcare benchmark (2.8%). Strong community feel.'},
+      alara: {tool:'@alarahealth — 1.1K followers',score:18,note:'1,100 followers. Inconsistent posting (2–3x/month). Content is primarily blog reposts. No video content, no Reels strategy. Organic reach is minimal.'}
+    },
+    {
+      id:'facebook', label:'Facebook Presence',
+      icon:'<path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>',
+      helix: {tool:'Helix Health — 12.4K likes',score:44,note:'12,400 page likes. Facebook is used primarily for paid acquisition targeting using Healthcare Special Ad Category. Organic posts average 45 engagements. Community groups not utilized.'},
+      goodrx:{tool:'GoodRx — 842K likes',score:87,note:'842K Facebook likes. High-reach paid media on Facebook targeting uninsured and underinsured consumers. Active Facebook Groups ("GoodRx Community") with 45K members. Strong organic + paid synergy.'},
+      midi:  {tool:'Midi Health — 8.2K likes',score:52,note:'8,200 page likes. Primarily used for paid acquisition to menopause-seeking audiences. Organic engagement is low. Facebook Groups strategy not yet developed.'},
+      alara: {tool:'Alara Health — 890 likes',score:22,note:'890 page likes. Minimal activity. Facebook is not a priority channel. No paid media strategy on the platform. Presence exists but is effectively dormant.'}
+    },
+    {
+      id:'sitetraffic', label:'Avg. Site Traffic (Monthly)',
+      icon:'<path d="M3 17l4-8 4 4 4-6 4 5"/>',
+      helix: {tool:'~180K monthly visits',score:47,note:'~180K estimated monthly visits via SimilarWeb. Primarily direct (38%) and organic (34%). Paid search accounts for 22%. Core health portal drives most traffic. Blog SEO strategy underdeveloped.'},
+      goodrx:{tool:'~52M monthly visits',score:97,note:'52M+ monthly visits — one of the highest-traffic consumer health properties. Drug price comparison drives massive organic search volume. SEO is a core competitive moat. 0% paid traffic dependency.'},
+      midi:  {tool:'~420K monthly visits',score:59,note:'~420K monthly visits. Strong organic growth (+180% YoY). Women\'s health and menopause keywords are high-intent and growing. Direct traffic growing as brand recognition increases.'},
+      alara: {tool:'~48K monthly visits',score:28,note:'~48K monthly visits. Primarily direct traffic — no significant SEO footprint. Organic search share is under 18%. No content marketing engine generating compounding organic growth.'}
+    }
+  ]
+};
+
+function renderCompetitive(){
+  var el = document.getElementById('comp-grid');
+  var stripEl = document.getElementById('comp-score-strip');
+  if(!el || !stripEl) return;
+
+  var comps = COMP_DATA.companies;
+  var scores = COMP_DATA.overallScore;
+
+  // Score colors
+  var scoreColor = function(s){ return s>=80?'#166534':s>=60?'#854d0e':s>=40?'#1e40af':'#991b1b'; };
+  var scoreBg    = function(s){ return s>=80?'#dcfce7':s>=60?'#fef9c3':s>=40?'#dbeafe':'#fee2e2'; };
+  var scoreLabel = function(s){ return s>=80?'Advanced':s>=60?'Developing':s>=40?'Emerging':'Early stage'; };
+  var barColor   = function(s){ return s>=80?'#22c55e':s>=60?'#f59e0b':s>=40?'#0391F2':'#E8472A'; };
+
+  // Score summary strip
+  var stripHTML = '<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:28px">';
+  comps.forEach(function(c){
+    var s = scores[c.id];
+    var isHelix = c.highlight;
+    stripHTML +=
+      '<div style="background:'+(isHelix?'var(--mk-blue)':'var(--lm-surface)')+';border:2px solid '+(isHelix?'var(--mk-blue)':'var(--lm-border)')+';border-radius:10px;padding:18px 20px;'+(isHelix?'':'')+'box-shadow:0 2px 8px rgba(4,14,75,.07)">' +
+        '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">' +
+          '<div style="font-size:13px;font-weight:700;color:'+(isHelix?'#fff':'var(--mk-blue)')+'">'+c.name+'</div>' +
+          (isHelix?'<span style="font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px;background:rgba(255,255,255,.15);color:#fff">Client</span>':'') +
+        '</div>' +
+        '<div style="font-size:38px;font-weight:700;color:'+(isHelix?'#fff':scoreColor(s))+';line-height:1;margin-bottom:4px">'+s+'</div>' +
+        '<div style="font-size:11px;font-weight:700;color:'+(isHelix?'rgba(255,255,255,.6)':scoreColor(s))+'">'+scoreLabel(s)+' maturity</div>' +
+        '<div style="height:4px;background:'+(isHelix?'rgba(255,255,255,.15)':'var(--lm-border)')+';border-radius:2px;margin-top:10px">' +
+          '<div style="height:100%;width:'+s+'%;background:'+(isHelix?'rgba(255,255,255,.7)':barColor(s))+';border-radius:2px"></div>' +
+        '</div>' +
+      '</div>';
+  });
+  stripHTML += '</div>';
+  stripEl.innerHTML = stripHTML;
+
+  // Category rows
+  var html = '';
+  COMP_DATA.categories.forEach(function(cat){
+    // Section header
+    html +=
+      '<div style="margin-bottom:16px">' +
+        '<div style="display:flex;align-items:center;gap:8px;padding:10px 16px;background:var(--mk-blue);border-radius:8px 8px 0 0">' +
+          '<svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:#fff;fill:none;stroke-width:1.8;flex-shrink:0">'+cat.icon+'</svg>' +
+          '<div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#fff">'+cat.label+'</div>' +
+        '</div>' +
+        '<div style="display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--lm-border);border-top:none;border-radius:0 0 8px 8px;overflow:hidden">';
+
+    comps.forEach(function(c, ci){
+      var d = cat[c.id];
+      if(!d) return;
+      var s = d.score;
+      var isHelix = c.highlight;
+      var isLast = ci === comps.length - 1;
+      html +=
+        '<div style="padding:16px;background:'+(isHelix?'#F5F7FF':'#fff')+';border-right:'+(isLast?'none':'1px solid var(--lm-border)')+'">' +
+          // Company label (only first row would show, but let's skip — header strip above handles it)
+          '<div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:'+(isHelix?'var(--mk-blue)':'var(--lm-text4)')+';margin-bottom:6px">'+c.name+'</div>' +
+          // Tool name
+          '<div style="font-size:12px;font-weight:600;color:var(--mk-blue);margin-bottom:8px;line-height:1.3">'+d.tool+'</div>' +
+          // Score bar
+          '<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">' +
+            '<div style="flex:1;height:5px;background:var(--lm-border);border-radius:3px">' +
+              '<div style="height:100%;width:'+s+'%;background:'+barColor(s)+';border-radius:3px"></div>' +
+            '</div>' +
+            '<span style="font-size:11px;font-weight:700;color:'+scoreColor(s)+';min-width:24px;text-align:right">'+s+'</span>' +
+          '</div>' +
+          '<span style="font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px;background:'+scoreBg(s)+';color:'+scoreColor(s)+'">'+scoreLabel(s)+'</span>' +
+          // Note
+          '<div style="font-size:11px;color:var(--lm-text3);line-height:1.55;margin-top:10px;padding-top:10px;border-top:1px solid var(--lm-border)">'+d.note+'</div>' +
+        '</div>';
+    });
+
+    html += '</div></div>';
+  });
+
+  // Helix vs competitor summaries
+  html += '<div style="margin-top:28px">' +
+    '<div style="font-size:16px;font-weight:700;color:var(--mk-blue);margin-bottom:14px">Summary: Helix Health vs competitors</div>' +
+    '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px">';
+
+  var summaries = [
+    {comp:'GoodRx',color:'#991b1b',bg:'#FEE2E2',border:'#FCA5A5',
+     headline:'GoodRx is 26 points ahead in overall maturity',
+     points:['Fully headless CMS vs AEM legacy','Braze vs AJO — real-time vs batch-oriented journeys','52M monthly visits vs 180K — SEO is GoodRx\'s primary moat','BigQuery + Vertex AI vs Snowflake — both strong but GoodRx is more cloud-native','312K TikTok followers vs 4.2K — massive social amplification gap']},
+    {comp:'Midi Health',color:'#854d0e',bg:'#FEF9C3',border:'#FDE68A',
+     headline:'Midi is 13 points ahead, strongest in social presence',
+     points:['Similar CRM maturity but Midi is growing faster','ActiveCampaign is less mature than AJO but Midi has simpler journeys','28K TikTok + 41K Instagram vs 4.2K + 6.8K — social gap is the key delta','Webflow CMS vs AEM legacy — Midi has faster time-to-publish','Midi\'s 420K monthly visits growing 180% YoY vs Helix\'s flat trajectory']},
+    {comp:'Alara Health',color:'#166534',bg:'#DCFCE7',border:'#86EFAC',
+     headline:'Helix leads Alara by 6 points — opportunity to widen gap',
+     points:['Helix has strong data infrastructure; Alara has none','AJO+AEP is a major capability advantage vs Alara\'s Mailchimp','Helix\'s 180K monthly visits vs Alara\'s 48K — healthy traffic lead','Both have underdeveloped social — neither is winning this channel','Opportunity: Helix should widen data and personalization advantage before Alara matures']}
+  ];
+
+  summaries.forEach(function(s){
+    html +=
+      '<div style="background:'+s.bg+';border:1px solid '+s.border+';border-radius:10px;padding:18px">' +
+        '<div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:'+s.color+';margin-bottom:6px">vs '+s.comp+'</div>' +
+        '<div style="font-size:13px;font-weight:700;color:var(--mk-blue);margin-bottom:12px;line-height:1.3">'+s.headline+'</div>' +
+        '<div style="display:flex;flex-direction:column;gap:7px">'+
+          s.points.map(function(p){
+            return '<div style="display:flex;align-items:flex-start;gap:7px">' +
+              '<div style="width:5px;height:5px;border-radius:50%;background:'+s.color+';flex-shrink:0;margin-top:5px"></div>' +
+              '<div style="font-size:11px;color:#374151;line-height:1.5">'+p+'</div>' +
+            '</div>';
+          }).join('') +
+        '</div>' +
+      '</div>';
+  });
+
+  html += '</div></div>';
+  el.innerHTML = html;
+}
+
+// Call on init
+function initCompetitive(){ renderCompetitive(); }
 renderExecCatTable();
 renderInventory(TOOLS);
 renderROIChart();
